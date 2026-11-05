@@ -1,7 +1,7 @@
 {
   "_doc": "Sélection validée par l’utilisateur le 2026-11-05 (proposition « garder » acceptée telle quelle). Fait foi pour la suite de l’étape 1.",
   "validee_le": "2026-11-05",
-  "total": 239,
+  "total": 238,
   "iba": [
     "Alexander",
     "Americano",
@@ -286,10 +286,6 @@
     {
       "idDrink": "11326",
       "nom": "Dubonnet Cocktail"
-    },
-    {
-      "idDrink": "17246",
-      "nom": "Empellón Cocina's Fat-Washed Mezcal"
     },
     {
       "idDrink": "11339",
@@ -654,6 +650,12 @@
     {
       "idDrink": "15328",
       "nom": "Zorro"
+    }
+  ],
+  "retires": [
+    {
+      "nom": "Empellón Cocina's Fat-Washed Mezcal",
+      "motif": "recette irréalisable à la maison (mezcal infusé à la graisse de porc fumée) ; retrait délégué par l'utilisateur, 2026-11-05"
     }
   ]
 }

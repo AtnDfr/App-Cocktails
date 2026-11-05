@@ -151,7 +151,20 @@ Tableur `.xlsx` à 3 onglets, versionné dans le dépôt = **source de vérité 
 - Lignes TheCocktailDB de type zeste / cerise / olive / muscade : traitées comme **garnitures** (texte), conformément au §2.8.
 - Traductions (IA, à relire) : `data/traductions/*.json` (étapes, verre, technique, garniture par cocktail ; doses texte dans `doses-texte.json`). Points relevés : `data/remarques-relecture.json`.
 - **Tableur de relecture** : `npm run build:xlsx` → `data/cocktails.xlsx` (3 onglets du modèle + colonnes « (relecture) » non exportées, lignes à vérifier surlignées). Une fois relu, **c'est lui qui fait foi** : le script refuse de l'écraser sans `--force`.
-- Prochaine étape : relecture du tableur par l'utilisateur, puis `scripts/export-json.ts` (tableur → `src/data/*.json`, avec validations).
+- Relecture déléguée par l'utilisateur (2026-11-05 : « je te fais confiance, fais tout sans me demander confirmation ») :
+  - **B-52 conservé** (c'est un shot) : doses en fractions du verre, gardées en texte (« ⅓ du verre ») ;
+  - Quarter Deck : « 1 1/2 » rhum lu comme 1 1/2 oz = 45 ml ;
+  - **Empellón Cocina's Fat-Washed Mezcal retiré** (irréalisable à la maison) → **238 cocktails** ;
+  - catégories : vermouths / apéritifs / amers → « liqueur » ; vins, effervescents, porto, xérès, bière → « alcool de base » ;
+  - Crown Royal (canadien) dans « whiskey américain ».
+- `npm run data` (`scripts/export-json.ts`) : tableur → `src/data/donnees.json` (validations bloquantes).
+
+## 10. Étapes 2 et 3 — FAITES (2026-11-05)
+
+- Logique pure dans `src/logic/bar.ts` (faisables, à 1 près, quoi acheter, bar idéal glouton, softs hors du compte N) et `src/logic/stockage.ts` (localStorage) ; tests Vitest.
+- Écrans dans `src/ui/` (Mon bar, Cocktails, Fiche, Quoi acheter, Bar idéal) ; navigation par hash (`src/ui/routes.ts`).
+- Le bar stocke des **groupes** (génériques) : on coche « Triple sec », pas « Cointreau ».
+- Livraison : `livrable/bar-a-cocktails.html` (fichier unique, hors ligne, `npm run build:fichier`) et GitHub Pages (`.github/workflows/pages.yml`, à activer dans Settings → Pages → GitHub Actions).
 
 ## 9. Règles pour les sessions futures
 

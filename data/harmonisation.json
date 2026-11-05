@@ -704,10 +704,6 @@
       "nom": "Crème de cacao brune (crème de cacao)",
       "groupe": "creme_de_cacao"
     },
-    "liqueur_chocolat": {
-      "nom": "Liqueur de chocolat (crème de cacao)",
-      "groupe": "creme_de_cacao"
-    },
     "creme_de_menthe_blanche": {
       "nom": "Crème de menthe blanche (crème de menthe)",
       "groupe": "creme_de_menthe"
@@ -926,7 +922,7 @@
     "licor amaretto": "amaretto",
     "licor frangelico": "frangelico",
     "creme de cacao": "creme_de_cacao",
-    "chocolate liqueur": "liqueur_chocolat",
+    "chocolate liqueur": "creme_de_cacao",
     "creme de menthe": "creme_de_menthe",
     "white creme de menthe": "creme_de_menthe_blanche",
     "green creme de menthe": "creme_de_menthe_verte",

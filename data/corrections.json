@@ -55,6 +55,22 @@
     "Quick-sand|Orange juice": {
       "dose": "250 ml",
       "motif": "dose écrite « Add 250 ml » dans la source : seule la tournure change"
+    },
+    "B-52|Baileys irish cream": {
+      "dose": "1/3 du verre",
+      "motif": "shot en couches : la source donne des fractions du verre ; gardées en texte (B-52 conservé par l'utilisateur, 2026-11-05)"
+    },
+    "B-52|Grand Marnier": {
+      "dose": "1/3 du verre",
+      "motif": "idem"
+    },
+    "B-52|Kahlua": {
+      "dose": "1/4 du verre",
+      "motif": "idem"
+    },
+    "Quarter Deck Cocktail|Light rum": {
+      "dose": "1 1/2 oz",
+      "motif": "unité absente ; toutes les autres doses de la recette sont en oz (arbitrage délégué par l'utilisateur, 2026-11-05)"
     }
   }
 }

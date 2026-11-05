@@ -114,7 +114,7 @@ export function loadRecipes(): { recipes: Recipe[]; problemes: string[] } {
       let dose = parseDose(fixed ?? measure);
       // Nombre seul devant un liquide (« 1 1/2 » rhum, « 1/3 » Baileys) : unité absente, à vérifier.
       const cat = hit && typeof hit === "string" ? categorieOf(h, hit) : "";
-      if (dose.kind === "texte" && /^[\d\s\/½¼¾]+$/.test(measure) && ["alcool de base", "liqueur", "soft"].includes(cat)) {
+      if (dose.kind === "texte" && /^[\d\s\/½¼¾]+$/.test(fixed ?? measure) && ["alcool de base", "liqueur", "soft"].includes(cat)) {
         dose = { kind: "a_verifier", raw: measure, raison: "nombre sans unité" };
       }
       if (dose.kind === "a_verifier" && dose.raison === "nombre sans unité" && hit === "menthe") dose = { kind: "texte", raw: measure };
