@@ -1,0 +1,19 @@
+{
+  "name": "app-cocktails",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "fetch:iba": "tsx scripts/fetch-iba.ts",
+    "fetch:cocktaildb": "tsx scripts/fetch-thecocktaildb.ts",
+    "select": "tsx scripts/select-candidates.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "cheerio": "^1.2.0",
+    "exceljs": "^4.4.0",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vitest": "^5.1.0"
+  }
+}

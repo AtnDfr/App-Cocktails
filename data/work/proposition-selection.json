@@ -1,0 +1,12 @@
+{
+  "_doc": "Proposition de tri des candidats TheCocktailDB (étape 1b), à valider par l'utilisateur. Tout candidat non listé est proposé « garder ».",
+  "ecarter": {
+    "shot / gadget": ["24k nightmare", "3 Wise Men", "ABC", "ACID", "Big Red", "Bob Marley", "Bubble Gum", "Bumble Bee", "Damned if you do", "Fahrenheit 5000", "Flaming Dr. Pepper", "Flaming Lamborghini", "Freddy Kruger", "Jam Donut", "Jelly Bean", "Kool-Aid Slammer", "Moranguito", "Orange Crush", "Royal Flush", "Tequila Surprise", "Texas Sling", "Turkeyball", "110 in the shade", "Fuzzy Asshole", "Grim Reaper"],
+    "produit introuvable ou mélange industriel": ["Bible Belt", "Grand Blue", "Irish Spring", "Kiss me Quick", "Kurant Tea", "Miami Vice", "National Aquarium", "Orange Push-up", "Oreo Mudslide", "Royal Fizz", "Rum Punch", "Stone Sour", "Zima Blaster", "Zimadori Zinger", "Zippy's Revenge", "Zenmeister", "Zambeer", "Owen's Grandmother's Revenge"],
+    "doublon ou variante": ["Vodka And Tonic", "Radioactive Long Island Iced Tea", "Raspberry Cooler"]
+  },
+  "arbitrer": {
+    "variante proche d'un IBA": ["Frozen Daiquiri", "Elderflower Caipirinha", "Mango Mojito", "Lazy Coconut Paloma", "Pineapple Paloma", "French Negroni", "Vodka Martini", "Dirty Martini"],
+    "ingrédient très spécifique (usage unique probable)": ["Duchamp's Punch", "Figgy Thyme", "Rosemary Blue", "Snowday", "Spice 75", "Winter Rita", "The Laverstoke", "Pure Passion", "Michelada", "Hot Toddy", "Kiwi Martini", "Van Vleet", "Victory Collins", "Ziemes Martini Apfelsaft", "Brigadier", "Ice Pick"]
+  }
+}

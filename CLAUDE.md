@@ -120,9 +120,8 @@ Tableur `.xlsx` à 3 onglets, versionné dans le dépôt = **source de vérité 
 
 ---
 
-## 7. Choix technique — *EN ATTENTE DE VALIDATION*
+## 7. Choix technique — VALIDÉ
 
-Proposition (ne pas coder avant validation) :
 - **Appli** : React + TypeScript + Vite, navigation par hash (compatible GitHub Pages et fichier local).
 - **Logique** : `src/logic/` en TypeScript pur, sans React ; tests **Vitest**.
 - **Persistance** : `localStorage` (identifiants des ingrédients cochés).
@@ -131,7 +130,14 @@ Proposition (ne pas coder avant validation) :
 
 ---
 
-## 8. Règles pour les sessions futures
+## 8. Avancement de l'étape 1 et organisation des fichiers
+
+- `data/raw/iba.json` (102 cocktails) et `data/raw/thecocktaildb.json` (441) : imports bruts **figés**, faits une seule fois. Les scripts `npm run fetch:iba` / `fetch:cocktaildb` refusent d'écraser sans `--force`.
+- `scripts/lib/dose.ts` : conversion des doses (testée, `npm test`). Toute dose non reconnue → « à vérifier ».
+- `scripts/lib/normalize.ts` : identifiants d'ingrédients **provisoires** pour la sélection ; la vraie harmonisation se fait en 1e.
+- `npm run select` → `data/work/selection-candidats.xlsx` (relecture de la sélection TheCocktailDB), `data/work/rapport-selection.md`, `data/work/iba-doses.csv`. La proposition de tri est dans `data/work/proposition-selection.json`.
+
+## 9. Règles pour les sessions futures
 
 - Lire ce fichier en début de session.
 - Ne jamais remettre en cause une décision ci-dessus sans le signaler.
