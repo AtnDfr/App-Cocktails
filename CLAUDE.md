@@ -26,6 +26,9 @@ Application de cocktails, cadeau d'anniversaire pour le père de l'utilisateur.
   - 1 trait (dash) ≈ 1 ml
   - 1 cuillère de bar = 5 ml
 - **Arrondi** : après conversion, toute valeur non entière est arrondie **au multiple de 5 ml supérieur** (ex. ¾ oz = 22,5 ml → 25 ml). Les traits (1 ml) et cuillères de bar (5 ml) ne sont pas arrondis.
+- Compléments validés : **1 shot = 30 ml**, **1 cuillère à café = 5 ml**, **1 cuillère à soupe = 15 ml**, avec le même arrondi au multiple de 5 supérieur pour les fractions (½ c. à café → 5 ml).
+- L'arrondi au multiple de 5 supérieur s'applique **aussi aux doses IBA déjà en ml** (22,5 → 25 ; 7,5 → 10 ; 52,5 → 55).
+- Les recettes exprimées en **« parts »** (proportions) sont **exclues** : les convertir obligerait à inventer un volume. Un classique concerné (ex. Kir Royale) pourra être ajouté à la main avec une recette fournie par l'utilisateur.
 - Les doses non chiffrables restent en texte : « compléter avec… », « quelques feuilles », « un zeste », etc.
 
 ### 2.2 Volume et périmètre

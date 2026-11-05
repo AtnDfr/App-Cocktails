@@ -42,14 +42,14 @@ const ALIAS_IBA: Record<string, string> = {
   "Cuba Libra": "Cuba Libre",
 };
 /** Softs qui servent à « compléter » un verre : une dose absente est acceptable. */
-const ALLONGEMENTS = new Set(["cola", "ginger_ale", "ginger_beer", "tonic", "limonade", "eau_gazeuse"]);
+const ALLONGEMENTS = new Set(["cola", "ginger_ale", "ginger_beer", "tonic", "limonade", "eau_gazeuse", "orange", "cranberry"]);
 /** Noms proches d'un cocktail IBA : gardés, mais à arbitrer par l'utilisateur. */
 const nomProche = (name: string) => {
   const k = cocktailKey(name);
   return ibaDrinks.find((d) => { const i = cocktailKey(d.name); return k !== i && k.length > 4 && (i.includes(k) || k.includes(i)); })?.name;
 };
 
-type Verdict = { drink: Drink; raw: any; exclu?: string; nouveaux: string[]; ingr: string[]; note: string };
+type Verdict = { drink: Drink; raw: any; exclu?: string; nouveaux: string[]; ingr: string[]; note: string; jumeau?: string };
 const verdicts: Verdict[] = [];
 for (const raw of tcdb.drinks) {
   const lines: Line[] = [];
@@ -59,7 +59,10 @@ for (const raw of tcdb.drinks) {
     const measure = (raw[`strMeasure${i}`] ?? "").trim();
     const key = provisionalKey(ing);
     if (key === "glace") continue; // la glace n'est pas une ligne de recette (CLAUDE.md §2.4)
-    lines.push({ rawIngredient: ing, rawMeasure: measure, key, dose: parseDose(measure) });
+    let dose = parseDose(measure);
+    // « 6 » feuilles de menthe : comptage, pas une dose liquide sans unité.
+    if (dose.kind === "a_verifier" && dose.raison === "nombre sans unité" && key === "menthe") dose = { kind: "texte", raw: measure };
+    lines.push({ rawIngredient: ing, rawMeasure: measure, key, dose });
   }
   const drink: Drink = { source: "TheCocktailDB", id: raw.idDrink, name: raw.strDrink.trim(), lines };
   const ingr = counts(drink);
@@ -88,7 +91,9 @@ candidats.sort((a, b) => a.nouveaux.length - b.nouveaux.length || b.ingr.length 
 for (const v of candidats) {
   const sig = signature(v.ingr);
   const twin = seen.get(sig);
-  if (twin) v.exclu = `quasi-variante de ${twin} (mêmes ingrédients)`;
+  // Même ensemble d'ingrédients (les basiques comme la crème ou l'œuf ne comptent pas) :
+  // pas forcément le même cocktail (White Russian / Black Russian), donc à arbitrer, pas exclu.
+  if (twin) v.jumeau = twin;
   else seen.set(sig, v.drink.name);
 }
 
@@ -99,7 +104,8 @@ for (const [decision, groups] of [["écarter", prop.ecarter], ["à arbitrer", pr
   for (const [motif, names] of Object.entries(groups as Record<string, string[]>)) for (const n of names) propOf.set(n, { decision, motif });
 const knownNames = new Set(verdicts.filter((v) => !v.exclu).map((v) => v.drink.name));
 for (const n of propOf.keys()) if (!knownNames.has(n)) console.warn(`⚠ proposition : « ${n} » n'est pas un candidat`);
-const proposition = (v: Verdict) => propOf.get(v.drink.name) ?? { decision: "garder", motif: "" };
+const proposition = (v: Verdict) =>
+  propOf.get(v.drink.name) ?? (v.jumeau ? { decision: "à arbitrer", motif: `mêmes ingrédients que ${v.jumeau}` } : { decision: "garder", motif: "" });
 
 // --- Sorties ---------------------------------------------------------------
 const csv = (rows: (string | number)[][]) =>
@@ -111,7 +117,7 @@ writeFileSync(
   csv([
     ["cocktail", "ligne d'origine (ingrédient)", "dose d'origine", "dose convertie", "id provisoire", "note"],
     ...ibaDrinks.flatMap((d) =>
-      d.lines.map((l) => [d.name, l.rawIngredient, l.rawMeasure, fmtDose(l.dose), l.key, l.dose.kind === "ml" ? (l.dose.note ?? "") : ""]),
+      d.lines.map((l) => [d.name, l.rawIngredient, l.rawMeasure, fmtDose(l.dose), l.key, ""]),
     ),
   ]),
 );
@@ -179,7 +185,6 @@ for (const v of verdicts) if (v.exclu) {
   reasons.set(r, (reasons.get(r) ?? 0) + 1);
 }
 const ibaAVerif = ibaDrinks.flatMap((d) => d.lines.filter((l) => l.dose.kind === "a_verifier").map((l) => `${d.name} : « ${l.rawMeasure} ${l.rawIngredient} » (${(l.dose as any).raison})`));
-const ibaHorsCadrage = ibaDrinks.flatMap((d) => d.lines.filter((l) => l.dose.kind === "ml" && l.dose.note).map((l) => `${d.name} : « ${l.rawMeasure} ${l.rawIngredient} »`));
 const inconnus = new Map<string, number>();
 for (const d of [...ibaDrinks, ...retenus.map((v) => v.drink)]) for (const l of d.lines) if (l.key.startsWith("?")) inconnus.set(l.key, (inconnus.get(l.key) ?? 0) + 1);
 const byNew = new Map<number, Verdict[]>();
@@ -203,9 +208,6 @@ const md = [
   "",
   "## IBA : doses à vérifier",
   ...ibaAVerif.map((s) => `- ${s}`),
-  "",
-  "## IBA : doses en cuillère à café / soupe (unité hors cadrage)",
-  ...ibaHorsCadrage.map((s) => `- ${s}`),
   "",
   "## Libellés non reconnus par la normalisation provisoire",
   ...[...inconnus].sort((a, b) => b[1] - a[1]).map(([k, n]) => `- ${k.slice(1)} (${n})`),

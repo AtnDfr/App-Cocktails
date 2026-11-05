@@ -52,12 +52,18 @@ describe("parseDose", () => {
     expect(parseDose("1/4 Bar Spoon")).toMatchObject({ kind: "a_verifier" });
     expect(parseDose("1/2 Bar Spoon")).toMatchObject({ kind: "a_verifier" });
   });
-  it("cuillères à café / soupe (hors cadrage, signalées)", () => {
-    expect(parseDose("2 tsp")).toMatchObject({ kind: "ml", ml: 10, note: expect.any(String) });
+  it("cuillères à café / soupe : 5 / 15 ml, fractions arrondies au multiple de 5 supérieur", () => {
+    expect(parseDose("2 tsp")).toMatchObject({ kind: "ml", ml: 10 });
+    expect(parseDose("1/2 tsp")).toMatchObject({ kind: "ml", ml: 5 });
+    expect(parseDose("1 1/2 tsp")).toMatchObject({ kind: "ml", ml: 10 });
     expect(parseDose("1 Tablespoon")).toMatchObject({ kind: "ml", ml: 15 });
   });
+  it("shot = 30 ml", () => {
+    expect(parseDose("1 shot")).toMatchObject({ kind: "ml", ml: 30 });
+    expect(parseDose("1 1/2 shot")).toMatchObject({ kind: "ml", ml: 45 });
+    expect(parseDose("1/3 shot")).toMatchObject({ kind: "ml", ml: 10 });
+  });
   it("unités non convertibles et plages : à vérifier", () => {
-    expect(parseDose("1 shot")).toMatchObject({ kind: "a_verifier" });
     expect(parseDose("2 parts")).toMatchObject({ kind: "a_verifier" });
     expect(parseDose("1 cup")).toMatchObject({ kind: "a_verifier" });
     expect(parseDose("1-2 oz")).toMatchObject({ kind: "a_verifier" });

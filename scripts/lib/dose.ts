@@ -4,8 +4,10 @@
  *   Valeur non entière → multiple de 5 ml supérieur (traits et cuillères non arrondis).
  * Toute dose non reconnue est marquée « à vérifier » : on ne devine jamais.
  *
- * Unités hors cadrage, ajoutées sous réserve de validation (signalées dans le rapport) :
- *   cuillère à café (tsp) = 5 ml · cuillère à soupe (tbsp) = 15 ml.
+ * Compléments validés par l'utilisateur :
+ *   1 shot = 30 ml · cuillère à café (tsp) = 5 ml · cuillère à soupe (tbsp) = 15 ml,
+ *   avec arrondi au multiple de 5 supérieur pour les fractions (½ c. à café → 5 ml).
+ *   Les doses en « parts » (proportions) ne sont pas converties.
  */
 
 export type Dose =
@@ -14,15 +16,16 @@ export type Dose =
   | { kind: "a_verifier"; raw: string; raison: string; proposition_ml?: number };
 
 /** Unités convertibles : facteur en ml, et si la valeur doit être arrondie au multiple de 5. */
-const UNITS: { re: RegExp; ml: number; round5: boolean; horsCadrage?: boolean }[] = [
+const UNITS: { re: RegExp; ml: number; round5: boolean }[] = [
   { re: /^(ml|millilit(er|re)s?)\b/i, ml: 1, round5: true },
   { re: /^cl\b/i, ml: 10, round5: true },
   { re: /^dl\b/i, ml: 100, round5: true },
   { re: /^(oz|ounces?)\b\.?/i, ml: 30, round5: true },
   { re: /^(dash(es)?|traits?)\b/i, ml: 1, round5: false },
   { re: /^(bar ?spoons?|barspoons?|cuill[eè]res? de bar)\b/i, ml: 5, round5: false },
-  { re: /^(tsp|teaspoons?)\b\.?/i, ml: 5, round5: false, horsCadrage: true },
-  { re: /^(tbsp|tblsp|tablespoons?)\b\.?/i, ml: 15, round5: false, horsCadrage: true },
+  { re: /^shots?\b/i, ml: 30, round5: true },
+  { re: /^(tsp|teaspoons?)\b\.?/i, ml: 5, round5: true },
+  { re: /^(tbsp|tblsp|tablespoons?)\b\.?/i, ml: 15, round5: true },
 ];
 
 /** Unités de comptage : la dose reste en texte (« 10 feuilles de basilic »). */
@@ -87,11 +90,10 @@ export function parseDose(raw: string): Dose {
     if (!Number.isInteger(ml)) {
       return { kind: "a_verifier", raw: src, raison: "fraction de trait ou de cuillère", proposition_ml: Math.ceil(ml) };
     }
-    const note = u.horsCadrage ? "unité hors cadrage (cuillère à café/soupe)" : undefined;
-    return note ? { kind: "ml", ml, raw: src, note } : { kind: "ml", ml, raw: src };
+    return { kind: "ml", ml, raw: src };
   }
 
-  if (/^(shots?|jiggers?|parts?|cups?|pints?|qt|quarts?|gal|gallons?|l|liters?|litres?|fifths?|bottles?|glass|gr|g|kg|lb)\b/i.test(rest)) {
+  if (/^(jiggers?|parts?|cups?|pints?|qt|quarts?|gal|gallons?|l|liters?|litres?|fifths?|bottles?|glass|gr|g|kg|lb)\b/i.test(rest)) {
     return { kind: "a_verifier", raw: src, raison: "unité non convertible selon le cadrage" };
   }
   if (rest === "") {
