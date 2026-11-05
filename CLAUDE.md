@@ -139,6 +139,8 @@ Tableur `.xlsx` à 3 onglets, versionné dans le dépôt = **source de vérité 
 - `scripts/lib/dose.ts` : conversion des doses (testée, `npm test`). Toute dose non reconnue → « à vérifier ».
 - `scripts/lib/normalize.ts` : identifiants d'ingrédients **provisoires** pour la sélection ; la vraie harmonisation se fait en 1e.
 - `npm run select` → `data/work/selection-candidats.xlsx` (relecture de la sélection TheCocktailDB), `data/work/rapport-selection.md`, `data/work/iba-doses.csv`. La proposition de tri est dans `data/work/proposition-selection.json`.
+- **Sélection VALIDÉE** (2026-11-05) : 239 cocktails = 102 IBA + 137 TheCocktailDB (proposition « garder » acceptée telle quelle). Liste figée dans `data/selection-validee.json`, qui fait foi pour la suite.
+- Doses IBA encore en suspens : IBA Tiki (« 90 » et « 30 » sans unité) et Tuxedo (½ et ¼ de cuillère de bar).
 
 ## 9. Règles pour les sessions futures
 

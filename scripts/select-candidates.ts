@@ -215,3 +215,17 @@ const md = [
 ].join("\n");
 writeFileSync("data/work/rapport-selection.md", md);
 console.log(md.split("\n").slice(0, 12).join("\n"));
+
+// Sélection proposée (« garder » uniquement). Une fois validée par l'utilisateur, elle est
+// copiée dans data/selection-validee.json, qui fait foi pour la suite (traduction, harmonisation).
+writeFileSync(
+  "data/work/selection-proposee.json",
+  JSON.stringify(
+    {
+      iba: ibaDrinks.map((d) => d.name),
+      thecocktaildb: retenus.filter((v) => proposition(v).decision === "garder").map((v) => ({ idDrink: v.drink.id, nom: v.drink.name })),
+    },
+    null,
+    2,
+  ) + "\n",
+);
