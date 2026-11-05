@@ -6,7 +6,9 @@
     "test": "vitest run",
     "fetch:iba": "tsx scripts/fetch-iba.ts",
     "fetch:cocktaildb": "tsx scripts/fetch-thecocktaildb.ts",
-    "select": "tsx scripts/select-candidates.ts"
+    "select": "tsx scripts/select-candidates.ts",
+    "check": "tsx scripts/check-recipes.ts",
+    "build:xlsx": "tsx scripts/build-workbook.ts"
   },
   "devDependencies": {
     "@types/node": "^26.6.6",

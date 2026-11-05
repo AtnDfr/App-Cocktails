@@ -39,7 +39,12 @@ export type Recipe = {
 };
 
 export function slug(name: string): string {
-  return simplify(name).replace(/&/g, " and ").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  return simplify(name).replace(/'/g, "").replace(/&/g, " and ").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+}
+
+export function categorieOf(h: Harmonisation, id: string): string {
+  const g = h.groupes[id] ? id : h.ingredients[id]?.groupe;
+  return (g && h.groupes[g]?.categorie) || "";
 }
 
 export function loadHarmonisation(): Harmonisation {
@@ -89,7 +94,7 @@ export function loadRecipes(): { recipes: Recipe[]; problemes: string[] } {
     }
     recipes.push({
       id: slug(name), nom: name, source: "IBA", url: c.url, lignes, garnituresDeLignes: [],
-      methodeEn: c.method, garnitureEn: c.garnish.join(" "), verreEn: "", instructionsFrSource: "",
+      methodeEn: corr.iba_methode?.[name]?.methode ?? c.method, garnitureEn: c.garnish.join(" "), verreEn: "", instructionsFrSource: "",
     });
   }
 
@@ -105,7 +110,13 @@ export function loadRecipes(): { recipes: Recipe[]; problemes: string[] } {
       const hit = resolve(name, libelle);
       if (hit === "glace") continue;
       if (hit && typeof hit === "object") { garn.push(hit.garniture); continue; }
-      let dose = parseDose(measure);
+      const fixed = corr.tcdb_doses?.[`${name}|${libelle}`]?.dose;
+      let dose = parseDose(fixed ?? measure);
+      // Nombre seul devant un liquide (« 1 1/2 » rhum, « 1/3 » Baileys) : unité absente, à vérifier.
+      const cat = hit && typeof hit === "string" ? categorieOf(h, hit) : "";
+      if (dose.kind === "texte" && /^[\d\s\/½¼¾]+$/.test(measure) && ["alcool de base", "liqueur", "soft"].includes(cat)) {
+        dose = { kind: "a_verifier", raw: measure, raison: "nombre sans unité" };
+      }
       if (dose.kind === "a_verifier" && dose.raison === "nombre sans unité" && hit === "menthe") dose = { kind: "texte", raw: measure };
       if (!measure) dose = { kind: "texte", raw: "" };
       lignes.push({ brut: `${measure} ${libelle}`.trim(), libelle, ingredient: hit, dose });

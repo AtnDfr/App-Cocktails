@@ -149,6 +149,9 @@ Tableur `.xlsx` à 3 onglets, versionné dans le dépôt = **source de vérité 
   - **triple sec** = Cointreau, triple sec, curaçao orange **et Grand Marnier**.
 - Jus : citron et citron vert (jus ou fruit) = ingrédients **frais** ; jus d'orange, d'ananas, de pamplemousse, de cranberry = **softs** (comme listé au §2.7) ; l'orange ou l'ananas en morceaux = **frais**.
 - Lignes TheCocktailDB de type zeste / cerise / olive / muscade : traitées comme **garnitures** (texte), conformément au §2.8.
+- Traductions (IA, à relire) : `data/traductions/*.json` (étapes, verre, technique, garniture par cocktail ; doses texte dans `doses-texte.json`). Points relevés : `data/remarques-relecture.json`.
+- **Tableur de relecture** : `npm run build:xlsx` → `data/cocktails.xlsx` (3 onglets du modèle + colonnes « (relecture) » non exportées, lignes à vérifier surlignées). Une fois relu, **c'est lui qui fait foi** : le script refuse de l'écraser sans `--force`.
+- Prochaine étape : relecture du tableur par l'utilisateur, puis `scripts/export-json.ts` (tableur → `src/data/*.json`, avec validations).
 
 ## 9. Règles pour les sessions futures
 
