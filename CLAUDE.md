@@ -140,7 +140,15 @@ Tableur `.xlsx` à 3 onglets, versionné dans le dépôt = **source de vérité 
 - `scripts/lib/normalize.ts` : identifiants d'ingrédients **provisoires** pour la sélection ; la vraie harmonisation se fait en 1e.
 - `npm run select` → `data/work/selection-candidats.xlsx` (relecture de la sélection TheCocktailDB), `data/work/rapport-selection.md`, `data/work/iba-doses.csv`. La proposition de tri est dans `data/work/proposition-selection.json`.
 - **Sélection VALIDÉE** (2026-11-05) : 239 cocktails = 102 IBA + 137 TheCocktailDB (proposition « garder » acceptée telle quelle). Liste figée dans `data/selection-validee.json`, qui fait foi pour la suite.
-- Doses IBA encore en suspens : IBA Tiki (« 90 » et « 30 » sans unité) et Tuxedo (½ et ¼ de cuillère de bar).
+- Doses IBA tranchées (2026-11-05) : IBA Tiki « 90 » et « 30 » = ml ; Tuxedo ½ et ¼ de cuillère de bar gardés **en texte**. Corrections des sources dans `data/corrections.json`.
+- Harmonisation : `data/harmonisation.json` (groupes de substitution, ingrédients marque/variante, rattachement de chaque libellé brut). `scripts/lib/recipes.ts` charge les 239 recettes ; `npx tsx scripts/check-recipes.ts` vérifie qu'aucun libellé n'est orphelin.
+- Groupes de substitution validés (2026-11-05) :
+  - **whiskey américain** = bourbon, rye, Tennessee, blended (y compris Crown Royal, canadien, à confirmer en relecture) ; **scotch** à part ; **irlandais** à part ;
+  - **rhum blanc** / **rhum ambré** (vieux, brun, jamaïcain, agricole, 151) ;
+  - **brandy** = cognac et brandy (calvados à part) ;
+  - **triple sec** = Cointreau, triple sec, curaçao orange **et Grand Marnier**.
+- Jus : citron et citron vert (jus ou fruit) = ingrédients **frais** ; jus d'orange, d'ananas, de pamplemousse, de cranberry = **softs** (comme listé au §2.7) ; l'orange ou l'ananas en morceaux = **frais**.
+- Lignes TheCocktailDB de type zeste / cerise / olive / muscade : traitées comme **garnitures** (texte), conformément au §2.8.
 
 ## 9. Règles pour les sessions futures
 

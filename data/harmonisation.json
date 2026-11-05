@@ -1,0 +1,1071 @@
+{
+  "_doc": "Table d'harmonisation des ingrédients (étape 1e). « groupes » = générique / groupe de substitution (le calcul se fait dessus). « ingredients » = ce qui s'affiche dans une recette : la marque d'abord, le générique entre parenthèses. « libelles » = libellé brut simplifié (minuscules, sans accents ni parenthèses) → identifiant d'ingrédient, ou { garniture: texte } quand la ligne est une garniture (texte seul, CLAUDE.md §2.8). « par_cocktail » = cas particuliers où la dose d'origine précise l'ingrédient (« 1/2 oz Muscatel wine »). À relire par l'utilisateur dans le tableur.",
+  "groupes": {
+    "glace": {
+      "nom": "Glace",
+      "categorie": "placard",
+      "basique": true
+    },
+    "sucre": {
+      "nom": "Sucre",
+      "categorie": "placard",
+      "basique": true
+    },
+    "sirop_de_sucre": {
+      "nom": "Sirop de sucre",
+      "categorie": "placard",
+      "basique": true
+    },
+    "eau": {
+      "nom": "Eau",
+      "categorie": "placard",
+      "basique": true
+    },
+    "eau_gazeuse": {
+      "nom": "Eau gazeuse",
+      "categorie": "soft",
+      "basique": true
+    },
+    "sel": {
+      "nom": "Sel",
+      "categorie": "placard",
+      "basique": true
+    },
+    "oeuf": {
+      "nom": "Œuf",
+      "categorie": "frais",
+      "basique": true
+    },
+    "creme": {
+      "nom": "Crème",
+      "categorie": "frais",
+      "basique": true
+    },
+    "lait": {
+      "nom": "Lait",
+      "categorie": "frais",
+      "basique": true
+    },
+    "gin": {
+      "nom": "Gin",
+      "categorie": "alcool de base"
+    },
+    "sloe_gin": {
+      "nom": "Sloe gin (liqueur de prunelle)",
+      "categorie": "liqueur"
+    },
+    "vodka": {
+      "nom": "Vodka",
+      "categorie": "alcool de base"
+    },
+    "vodka_citron": {
+      "nom": "Vodka citron",
+      "categorie": "alcool de base"
+    },
+    "vodka_citron_vert": {
+      "nom": "Vodka citron vert",
+      "categorie": "alcool de base"
+    },
+    "vodka_vanille": {
+      "nom": "Vodka vanille",
+      "categorie": "alcool de base"
+    },
+    "rhum_blanc": {
+      "nom": "Rhum blanc",
+      "categorie": "alcool de base"
+    },
+    "rhum_ambre": {
+      "nom": "Rhum ambré",
+      "categorie": "alcool de base"
+    },
+    "cachaca": {
+      "nom": "Cachaça",
+      "categorie": "alcool de base"
+    },
+    "tequila": {
+      "nom": "Tequila",
+      "categorie": "alcool de base"
+    },
+    "mezcal": {
+      "nom": "Mezcal",
+      "categorie": "alcool de base"
+    },
+    "pisco": {
+      "nom": "Pisco",
+      "categorie": "alcool de base"
+    },
+    "grappa": {
+      "nom": "Grappa",
+      "categorie": "alcool de base"
+    },
+    "whiskey_americain": {
+      "nom": "Whiskey américain",
+      "categorie": "alcool de base"
+    },
+    "scotch": {
+      "nom": "Scotch whisky",
+      "categorie": "alcool de base"
+    },
+    "whiskey_irlandais": {
+      "nom": "Whiskey irlandais",
+      "categorie": "alcool de base"
+    },
+    "brandy": {
+      "nom": "Brandy",
+      "categorie": "alcool de base"
+    },
+    "calvados": {
+      "nom": "Calvados",
+      "categorie": "alcool de base"
+    },
+    "vin_effervescent": {
+      "nom": "Vin effervescent",
+      "categorie": "alcool de base"
+    },
+    "vin_blanc": {
+      "nom": "Vin blanc sec",
+      "categorie": "alcool de base"
+    },
+    "vin_rouge": {
+      "nom": "Vin rouge",
+      "categorie": "alcool de base"
+    },
+    "vin_muscat": {
+      "nom": "Muscat",
+      "categorie": "alcool de base"
+    },
+    "vin_gingembre": {
+      "nom": "Vin au gingembre",
+      "categorie": "alcool de base"
+    },
+    "porto": {
+      "nom": "Porto",
+      "categorie": "alcool de base"
+    },
+    "xeres": {
+      "nom": "Xérès (sherry)",
+      "categorie": "alcool de base"
+    },
+    "biere": {
+      "nom": "Bière blonde",
+      "categorie": "alcool de base"
+    },
+    "vermouth_rouge": {
+      "nom": "Vermouth rouge",
+      "categorie": "liqueur"
+    },
+    "vermouth_dry": {
+      "nom": "Vermouth dry",
+      "categorie": "liqueur"
+    },
+    "dubonnet": {
+      "nom": "Dubonnet rouge",
+      "categorie": "liqueur"
+    },
+    "campari": {
+      "nom": "Campari",
+      "categorie": "liqueur"
+    },
+    "aperol": {
+      "nom": "Aperol",
+      "categorie": "liqueur"
+    },
+    "lillet_blanc": {
+      "nom": "Lillet blanc",
+      "categorie": "liqueur"
+    },
+    "cynar": {
+      "nom": "Cynar",
+      "categorie": "liqueur"
+    },
+    "amaro_nonino": {
+      "nom": "Amaro Nonino",
+      "categorie": "liqueur"
+    },
+    "fernet": {
+      "nom": "Fernet-Branca",
+      "categorie": "liqueur"
+    },
+    "chartreuse_verte": {
+      "nom": "Chartreuse verte",
+      "categorie": "liqueur"
+    },
+    "chartreuse_jaune": {
+      "nom": "Chartreuse jaune",
+      "categorie": "liqueur"
+    },
+    "benedictine": {
+      "nom": "Bénédictine",
+      "categorie": "liqueur"
+    },
+    "drambuie": {
+      "nom": "Drambuie",
+      "categorie": "liqueur"
+    },
+    "galliano": {
+      "nom": "Galliano",
+      "categorie": "liqueur"
+    },
+    "absinthe": {
+      "nom": "Absinthe",
+      "categorie": "liqueur"
+    },
+    "pastis": {
+      "nom": "Pastis",
+      "categorie": "liqueur"
+    },
+    "anisette": {
+      "nom": "Anisette",
+      "categorie": "liqueur"
+    },
+    "ouzo": {
+      "nom": "Ouzo",
+      "categorie": "liqueur"
+    },
+    "sambuca": {
+      "nom": "Sambuca",
+      "categorie": "liqueur"
+    },
+    "triple_sec": {
+      "nom": "Triple sec",
+      "categorie": "liqueur"
+    },
+    "curacao_bleu": {
+      "nom": "Curaçao bleu",
+      "categorie": "liqueur"
+    },
+    "marasquin": {
+      "nom": "Marasquin",
+      "categorie": "liqueur"
+    },
+    "liqueur_cafe": {
+      "nom": "Liqueur de café",
+      "categorie": "liqueur"
+    },
+    "amaretto": {
+      "nom": "Amaretto",
+      "categorie": "liqueur"
+    },
+    "frangelico": {
+      "nom": "Frangelico",
+      "categorie": "liqueur"
+    },
+    "creme_de_cacao": {
+      "nom": "Crème de cacao",
+      "categorie": "liqueur"
+    },
+    "creme_de_menthe": {
+      "nom": "Crème de menthe",
+      "categorie": "liqueur"
+    },
+    "creme_de_cassis": {
+      "nom": "Crème de cassis",
+      "categorie": "liqueur"
+    },
+    "creme_de_mure": {
+      "nom": "Crème de mûre",
+      "categorie": "liqueur"
+    },
+    "creme_de_violette": {
+      "nom": "Crème de violette",
+      "categorie": "liqueur"
+    },
+    "creme_irlandaise": {
+      "nom": "Crème de whisky irlandais",
+      "categorie": "liqueur"
+    },
+    "liqueur_abricot": {
+      "nom": "Liqueur d'abricot (apricot brandy)",
+      "categorie": "liqueur"
+    },
+    "cherry_brandy": {
+      "nom": "Cherry brandy (liqueur de cerise)",
+      "categorie": "liqueur"
+    },
+    "liqueur_peche": {
+      "nom": "Liqueur de pêche",
+      "categorie": "liqueur"
+    },
+    "liqueur_framboise": {
+      "nom": "Liqueur de framboise",
+      "categorie": "liqueur"
+    },
+    "liqueur_fraise": {
+      "nom": "Liqueur de fraise",
+      "categorie": "liqueur"
+    },
+    "liqueur_melon": {
+      "nom": "Liqueur de melon",
+      "categorie": "liqueur"
+    },
+    "liqueur_passion": {
+      "nom": "Liqueur de fruit de la passion",
+      "categorie": "liqueur"
+    },
+    "falernum": {
+      "nom": "Falernum",
+      "categorie": "liqueur"
+    },
+    "allspice_dram": {
+      "nom": "Liqueur de piment de la Jamaïque (allspice dram)",
+      "categorie": "liqueur"
+    },
+    "angostura": {
+      "nom": "Angostura",
+      "categorie": "placard"
+    },
+    "orange_bitters": {
+      "nom": "Orange bitters",
+      "categorie": "placard"
+    },
+    "peychaud": {
+      "nom": "Peychaud's",
+      "categorie": "placard"
+    },
+    "peach_bitters": {
+      "nom": "Peach bitters",
+      "categorie": "placard"
+    },
+    "grenadine": {
+      "nom": "Sirop de grenadine",
+      "categorie": "placard"
+    },
+    "orgeat": {
+      "nom": "Sirop d'orgeat",
+      "categorie": "placard"
+    },
+    "miel": {
+      "nom": "Miel",
+      "categorie": "placard"
+    },
+    "sirop_agave": {
+      "nom": "Sirop d'agave",
+      "categorie": "placard"
+    },
+    "sirop_framboise": {
+      "nom": "Sirop de framboise",
+      "categorie": "placard"
+    },
+    "sirop_passion": {
+      "nom": "Sirop de fruit de la passion",
+      "categorie": "placard"
+    },
+    "sirop_sureau": {
+      "nom": "Sirop de fleur de sureau",
+      "categorie": "placard"
+    },
+    "sirop_camomille": {
+      "nom": "Sirop de camomille",
+      "categorie": "placard"
+    },
+    "donns_mix": {
+      "nom": "Donn's Mix (pamplemousse et cannelle)",
+      "categorie": "placard"
+    },
+    "cordial_citron_vert": {
+      "nom": "Cordial de citron vert",
+      "categorie": "placard"
+    },
+    "creme_de_coco": {
+      "nom": "Crème de coco",
+      "categorie": "placard"
+    },
+    "cafe": {
+      "nom": "Café",
+      "categorie": "placard"
+    },
+    "worcestershire": {
+      "nom": "Sauce Worcestershire",
+      "categorie": "placard"
+    },
+    "tabasco": {
+      "nom": "Tabasco",
+      "categorie": "placard"
+    },
+    "sel_de_celeri": {
+      "nom": "Sel de céleri",
+      "categorie": "placard"
+    },
+    "poivre": {
+      "nom": "Poivre",
+      "categorie": "placard"
+    },
+    "extrait_vanille": {
+      "nom": "Extrait de vanille",
+      "categorie": "placard"
+    },
+    "sucre_vanille": {
+      "nom": "Sucre vanillé",
+      "categorie": "placard"
+    },
+    "eau_fleur_oranger": {
+      "nom": "Eau de fleur d'oranger",
+      "categorie": "placard"
+    },
+    "clou_de_girofle": {
+      "nom": "Clous de girofle",
+      "categorie": "placard"
+    },
+    "citron": {
+      "nom": "Citron",
+      "categorie": "frais"
+    },
+    "citron_vert": {
+      "nom": "Citron vert",
+      "categorie": "frais"
+    },
+    "orange": {
+      "nom": "Orange",
+      "categorie": "frais"
+    },
+    "ananas": {
+      "nom": "Ananas",
+      "categorie": "frais"
+    },
+    "menthe": {
+      "nom": "Menthe fraîche",
+      "categorie": "frais"
+    },
+    "basilic": {
+      "nom": "Basilic frais",
+      "categorie": "frais"
+    },
+    "gingembre": {
+      "nom": "Gingembre frais",
+      "categorie": "frais"
+    },
+    "piment_rouge": {
+      "nom": "Piment rouge frais",
+      "categorie": "frais"
+    },
+    "concombre": {
+      "nom": "Concombre",
+      "categorie": "frais"
+    },
+    "fraise": {
+      "nom": "Fraises",
+      "categorie": "frais"
+    },
+    "mure": {
+      "nom": "Mûres",
+      "categorie": "frais"
+    },
+    "armoise": {
+      "nom": "Absinthe fraîche (plante)",
+      "categorie": "frais"
+    },
+    "puree_peche_blanche": {
+      "nom": "Purée de pêche blanche",
+      "categorie": "frais"
+    },
+    "puree_passion": {
+      "nom": "Purée de fruit de la passion",
+      "categorie": "frais"
+    },
+    "jus_de_canne": {
+      "nom": "Jus de canne à sucre",
+      "categorie": "frais"
+    },
+    "jus_orange": {
+      "nom": "Jus d'orange",
+      "categorie": "soft"
+    },
+    "jus_ananas": {
+      "nom": "Jus d'ananas",
+      "categorie": "soft"
+    },
+    "jus_pamplemousse": {
+      "nom": "Jus de pamplemousse",
+      "categorie": "soft"
+    },
+    "cranberry": {
+      "nom": "Jus de cranberry",
+      "categorie": "soft"
+    },
+    "jus_de_tomate": {
+      "nom": "Jus de tomate",
+      "categorie": "soft"
+    },
+    "nectar_peche": {
+      "nom": "Nectar de pêche",
+      "categorie": "soft"
+    },
+    "cola": {
+      "nom": "Cola",
+      "categorie": "soft"
+    },
+    "ginger_ale": {
+      "nom": "Ginger ale",
+      "categorie": "soft"
+    },
+    "ginger_beer": {
+      "nom": "Ginger beer",
+      "categorie": "soft"
+    },
+    "tonic": {
+      "nom": "Tonic",
+      "categorie": "soft"
+    },
+    "limonade": {
+      "nom": "Limonade (type Sprite)",
+      "categorie": "soft"
+    },
+    "citronnade": {
+      "nom": "Citronnade",
+      "categorie": "soft"
+    },
+    "limeade": {
+      "nom": "Limeade (citronnade au citron vert)",
+      "categorie": "soft"
+    },
+    "soda_pamplemousse": {
+      "nom": "Soda au pamplemousse rose",
+      "categorie": "soft"
+    }
+  },
+  "ingredients": {
+    "old_tom_gin": {
+      "nom": "Old Tom (gin)",
+      "groupe": "gin"
+    },
+    "london_dry_gin": {
+      "nom": "London dry (gin)",
+      "groupe": "gin"
+    },
+    "smirnoff": {
+      "nom": "Smirnoff (vodka)",
+      "groupe": "vodka"
+    },
+    "absolut": {
+      "nom": "Absolut (vodka)",
+      "groupe": "vodka"
+    },
+    "absolut_citron": {
+      "nom": "Absolut Citron (vodka citron)",
+      "groupe": "vodka_citron"
+    },
+    "havana_profundo": {
+      "nom": "Havana Club Profundo (rhum ambré)",
+      "groupe": "rhum_ambre"
+    },
+    "havana_smoky": {
+      "nom": "Havana Club Smoky (rhum ambré)",
+      "groupe": "rhum_ambre"
+    },
+    "goslings": {
+      "nom": "Gosling's (rhum ambré)",
+      "groupe": "rhum_ambre"
+    },
+    "rhum_jamaicain": {
+      "nom": "Rhum jamaïcain (rhum ambré)",
+      "groupe": "rhum_ambre"
+    },
+    "rhum_demerara": {
+      "nom": "Rhum Demerara (rhum ambré)",
+      "groupe": "rhum_ambre"
+    },
+    "rhum_blackstrap": {
+      "nom": "Rhum blackstrap (rhum ambré)",
+      "groupe": "rhum_ambre"
+    },
+    "rhum_agricole": {
+      "nom": "Rhum agricole de Martinique (rhum ambré)",
+      "groupe": "rhum_ambre"
+    },
+    "rhum_151": {
+      "nom": "Rhum 151 (rhum ambré)",
+      "groupe": "rhum_ambre"
+    },
+    "rhum_epice": {
+      "nom": "Rhum épicé (rhum ambré)",
+      "groupe": "rhum_ambre"
+    },
+    "rhum_jamaicain_overproof_blanc": {
+      "nom": "Rhum jamaïcain blanc overproof (rhum blanc)",
+      "groupe": "rhum_blanc"
+    },
+    "rhum_cubain": {
+      "nom": "Rhum cubain (rhum blanc)",
+      "groupe": "rhum_blanc"
+    },
+    "aguardiente_cubain": {
+      "nom": "Aguardiente cubain (rhum blanc)",
+      "groupe": "rhum_blanc"
+    },
+    "mezcal_espadin": {
+      "nom": "Mezcal espadín (mezcal)",
+      "groupe": "mezcal"
+    },
+    "bourbon": {
+      "nom": "Bourbon (whiskey américain)",
+      "groupe": "whiskey_americain"
+    },
+    "rye": {
+      "nom": "Rye (whiskey américain)",
+      "groupe": "whiskey_americain"
+    },
+    "jack_daniels": {
+      "nom": "Jack Daniel's (whiskey américain)",
+      "groupe": "whiskey_americain"
+    },
+    "blended_whiskey": {
+      "nom": "Blended whiskey (whiskey américain)",
+      "groupe": "whiskey_americain"
+    },
+    "crown_royal": {
+      "nom": "Crown Royal (whiskey américain)",
+      "groupe": "whiskey_americain"
+    },
+    "lagavulin": {
+      "nom": "Lagavulin 16 ans (scotch whisky)",
+      "groupe": "scotch"
+    },
+    "scotch_blended": {
+      "nom": "Blended scotch (scotch whisky)",
+      "groupe": "scotch"
+    },
+    "cognac": {
+      "nom": "Cognac (brandy)",
+      "groupe": "brandy"
+    },
+    "applejack": {
+      "nom": "Applejack (calvados)",
+      "groupe": "calvados"
+    },
+    "champagne": {
+      "nom": "Champagne (vin effervescent)",
+      "groupe": "vin_effervescent"
+    },
+    "prosecco": {
+      "nom": "Prosecco (vin effervescent)",
+      "groupe": "vin_effervescent"
+    },
+    "porto_tawny": {
+      "nom": "Porto tawny (porto)",
+      "groupe": "porto"
+    },
+    "xeres_amontillado": {
+      "nom": "Amontillado (xérès)",
+      "groupe": "xeres"
+    },
+    "xeres_palo_cortado": {
+      "nom": "Palo cortado (xérès)",
+      "groupe": "xeres"
+    },
+    "xeres_cream": {
+      "nom": "Cream sherry (xérès)",
+      "groupe": "xeres"
+    },
+    "cinzano_rosso": {
+      "nom": "Cinzano Rosso (vermouth rouge)",
+      "groupe": "vermouth_rouge"
+    },
+    "pernod": {
+      "nom": "Pernod (absinthe)",
+      "groupe": "absinthe"
+    },
+    "ricard": {
+      "nom": "Ricard (pastis)",
+      "groupe": "pastis"
+    },
+    "sambuca_noire": {
+      "nom": "Sambuca noire (sambuca)",
+      "groupe": "sambuca"
+    },
+    "cointreau": {
+      "nom": "Cointreau (triple sec)",
+      "groupe": "triple_sec"
+    },
+    "curacao_orange": {
+      "nom": "Curaçao orange (triple sec)",
+      "groupe": "triple_sec"
+    },
+    "grand_marnier": {
+      "nom": "Grand Marnier (triple sec)",
+      "groupe": "triple_sec"
+    },
+    "luxardo_maraschino": {
+      "nom": "Luxardo Maraschino (marasquin)",
+      "groupe": "marasquin"
+    },
+    "kahlua": {
+      "nom": "Kahlúa (liqueur de café)",
+      "groupe": "liqueur_cafe"
+    },
+    "coffee_brandy": {
+      "nom": "Coffee brandy (liqueur de café)",
+      "groupe": "liqueur_cafe"
+    },
+    "creme_de_cacao_blanche": {
+      "nom": "Crème de cacao blanche (crème de cacao)",
+      "groupe": "creme_de_cacao"
+    },
+    "creme_de_cacao_brune": {
+      "nom": "Crème de cacao brune (crème de cacao)",
+      "groupe": "creme_de_cacao"
+    },
+    "liqueur_chocolat": {
+      "nom": "Liqueur de chocolat (crème de cacao)",
+      "groupe": "creme_de_cacao"
+    },
+    "creme_de_menthe_blanche": {
+      "nom": "Crème de menthe blanche (crème de menthe)",
+      "groupe": "creme_de_menthe"
+    },
+    "creme_de_menthe_verte": {
+      "nom": "Crème de menthe verte (crème de menthe)",
+      "groupe": "creme_de_menthe"
+    },
+    "baileys": {
+      "nom": "Baileys (crème de whisky irlandais)",
+      "groupe": "creme_irlandaise"
+    },
+    "luxardo_cherry": {
+      "nom": "Luxardo Cherry Brandy (cherry brandy)",
+      "groupe": "cherry_brandy"
+    },
+    "luxardo_sangue_morlacco": {
+      "nom": "Luxardo Sangue Morlacco (cherry brandy)",
+      "groupe": "cherry_brandy"
+    },
+    "peach_schnapps": {
+      "nom": "Schnaps à la pêche (liqueur de pêche)",
+      "groupe": "liqueur_peche"
+    },
+    "peach_brandy": {
+      "nom": "Peach brandy (liqueur de pêche)",
+      "groupe": "liqueur_peche"
+    },
+    "strawberry_schnapps": {
+      "nom": "Schnaps à la fraise (liqueur de fraise)",
+      "groupe": "liqueur_fraise"
+    },
+    "allspice_saint_elizabeth": {
+      "nom": "St. Elizabeth (allspice dram)",
+      "groupe": "allspice_dram"
+    },
+    "sirop_de_miel": {
+      "nom": "Sirop de miel (miel)",
+      "groupe": "miel"
+    },
+    "sirop_de_miel_camomille": {
+      "nom": "Sirop de miel à la camomille (miel)",
+      "groupe": "miel"
+    },
+    "sirop_demerara": {
+      "nom": "Sirop de sucre demerara (sirop de sucre)",
+      "groupe": "sirop_de_sucre"
+    },
+    "roses_lime": {
+      "nom": "Rose's (cordial de citron vert)",
+      "groupe": "cordial_citron_vert"
+    },
+    "espresso": {
+      "nom": "Espresso (café)",
+      "groupe": "cafe"
+    },
+    "blanc_oeuf": {
+      "nom": "Blanc d'œuf (œuf)",
+      "groupe": "oeuf"
+    },
+    "jaune_oeuf": {
+      "nom": "Jaune d'œuf (œuf)",
+      "groupe": "oeuf"
+    },
+    "seven_up": {
+      "nom": "7 Up (limonade)",
+      "groupe": "limonade"
+    },
+    "sprite": {
+      "nom": "Sprite (limonade)",
+      "groupe": "limonade"
+    }
+  },
+  "libelles": {
+    "ice": "glace",
+    "sugar": "sucre",
+    "white cane sugar": "sucre",
+    "sugar cube": "sucre",
+    "superfine sugar": "sucre",
+    "powdered sugar": "sucre",
+    "sugar syrup": "sirop_de_sucre",
+    "simple syrup": "sirop_de_sucre",
+    "demerara sugar syrup": "sirop_demerara",
+    "water": "eau",
+    "plain water": "eau",
+    "soda water": "eau_gazeuse",
+    "club soda": "eau_gazeuse",
+    "carbonated water": "eau_gazeuse",
+    "salt": "sel",
+    "egg white": "blanc_oeuf",
+    "raw whole egg white": "blanc_oeuf",
+    "egg yolk": "jaune_oeuf",
+    "fresh cream": "creme",
+    "cream": "creme",
+    "heavy cream": "creme",
+    "light cream": "creme",
+    "half-and-half": "creme",
+    "milk": "lait",
+    "gin": "gin",
+    "dry gin": "gin",
+    "old tom gin": "old_tom_gin",
+    "london dry gin": "london_dry_gin",
+    "sloe gin": "sloe_gin",
+    "vodka": "vodka",
+    "smirnoff vodka": "smirnoff",
+    "absolut vodka": "absolut",
+    "vodka citron": "vodka_citron",
+    "absolut citron": "absolut_citron",
+    "lime vodka": "vodka_citron_vert",
+    "vanilla vodka": "vodka_vanille",
+    "vodka vanilla": "vodka_vanille",
+    "white rum": "rhum_blanc",
+    "light rum": "rhum_blanc",
+    "rum": "rhum_blanc",
+    "white cuban ron": "rhum_cubain",
+    "cuban rum": "rhum_cubain",
+    "jamaica overproof white rum": "rhum_jamaicain_overproof_blanc",
+    "cuban aguardiente": "aguardiente_cubain",
+    "dark rum": "rhum_ambre",
+    "aged rum": "rhum_ambre",
+    "blended aged rum": "rhum_ambre",
+    "anejo rum": "rhum_ambre",
+    "gold puerto rican rum": "rhum_ambre",
+    "goslings rum": "goslings",
+    "gold jamaican rum": "rhum_jamaicain",
+    "amber jamaican rum": "rhum_jamaicain",
+    "jamaican rum": "rhum_jamaicain",
+    "jamaican dark rum": "rhum_jamaicain",
+    "blackstrap rum": "rhum_blackstrap",
+    "demerara rum": "rhum_demerara",
+    "spiced rum": "rhum_epice",
+    "martinique molasses rhum": "rhum_agricole",
+    "rhum martinique agricole": "rhum_agricole",
+    "151 proof rum": "rhum_151",
+    "ron profundo havana club": "havana_profundo",
+    "ron smoky havana club": "havana_smoky",
+    "cachaca": "cachaca",
+    "tequila": "tequila",
+    "tequila 100% agave": "tequila",
+    "100% agave tequila": "tequila",
+    "mezcal": "mezcal",
+    "espadin mezcal": "mezcal_espadin",
+    "pisco": "pisco",
+    "white smooth grappa": "grappa",
+    "bourbon": "bourbon",
+    "bourbon whiskey": "bourbon",
+    "bourbon or rye whiskey": "bourbon",
+    "rye whiskey or bourbon": "rye",
+    "rye whiskey": "rye",
+    "jack daniels": "jack_daniels",
+    "blended whiskey": "blended_whiskey",
+    "crown royal": "crown_royal",
+    "scotch": "scotch",
+    "scotch whisky": "scotch",
+    "blended scotch whisky": "scotch_blended",
+    "lagavulin 16y": "lagavulin",
+    "irish whiskey": "whiskey_irlandais",
+    "brandy": "brandy",
+    "cognac": "cognac",
+    "cognac or brandy": "cognac",
+    "calvados": "calvados",
+    "applejack": "applejack",
+    "apple brandy": "applejack",
+    "prosecco": "prosecco",
+    "champagne": "champagne",
+    "chilled champagne": "champagne",
+    "brut champagne or prosecco": "champagne",
+    "champagne to serve on the side": "champagne",
+    "sparkling wine": "vin_effervescent",
+    "dry white wine": "vin_blanc",
+    "red wine": "vin_rouge",
+    "port": "porto",
+    "red tawny port wine": "porto_tawny",
+    "amontillado sherry": "xeres_amontillado",
+    "palo cortado": "xeres_palo_cortado",
+    "beer": "biere",
+    "sweet vermouth": "vermouth_rouge",
+    "sweet red vermouth": "vermouth_rouge",
+    "vermouth": "vermouth_rouge",
+    "sweet vermouth cinzano rosso": "cinzano_rosso",
+    "dry vermouth": "vermouth_dry",
+    "dubonnet rouge": "dubonnet",
+    "campari": "campari",
+    "bitter campari": "campari",
+    "aperol": "aperol",
+    "lillet blanc": "lillet_blanc",
+    "cynar": "cynar",
+    "amaro nonino": "amaro_nonino",
+    "fernet": "fernet",
+    "fernet branca": "fernet",
+    "green chartreuse": "chartreuse_verte",
+    "yellow chartreuse": "chartreuse_jaune",
+    "benedictine": "benedictine",
+    "dom benedictine": "benedictine",
+    "drambuie": "drambuie",
+    "galliano": "galliano",
+    "absinthe": "absinthe",
+    "pernod": "pernod",
+    "ricard": "ricard",
+    "anisette": "anisette",
+    "ouzo": "ouzo",
+    "sambuca": "sambuca",
+    "black sambuca": "sambuca_noire",
+    "triple sec": "triple_sec",
+    "cointreau": "cointreau",
+    "curacao": "curacao_orange",
+    "orange curacao": "curacao_orange",
+    "grand marnier": "grand_marnier",
+    "blue curacao": "curacao_bleu",
+    "maraschino luxardo": "luxardo_maraschino",
+    "maraschino liqueur": "marasquin",
+    "coffee liqueur": "liqueur_cafe",
+    "kahlua": "kahlua",
+    "coffee brandy": "coffee_brandy",
+    "amaretto": "amaretto",
+    "licor amaretto": "amaretto",
+    "licor frangelico": "frangelico",
+    "creme de cacao": "creme_de_cacao",
+    "chocolate liqueur": "liqueur_chocolat",
+    "creme de menthe": "creme_de_menthe",
+    "white creme de menthe": "creme_de_menthe_blanche",
+    "green creme de menthe": "creme_de_menthe_verte",
+    "creme de cassis": "creme_de_cassis",
+    "creme de mure": "creme_de_mure",
+    "creme de violette": "creme_de_violette",
+    "baileys irish cream": "baileys",
+    "apricot brandy": "liqueur_abricot",
+    "cherry brandy": "cherry_brandy",
+    "cherry liqueur": "cherry_brandy",
+    "cherry brandy luxardo": "luxardo_cherry",
+    "cherry sangue morlacco": "luxardo_sangue_morlacco",
+    "peach schnapps": "peach_schnapps",
+    "peach brandy": "peach_brandy",
+    "raspberry liqueur": "liqueur_framboise",
+    "strawberry liqueur": "liqueur_fraise",
+    "strawberry schnapps": "strawberry_schnapps",
+    "melon liqueur": "liqueur_melon",
+    "passion fruit liqueur": "liqueur_passion",
+    "falernum": "falernum",
+    "allspice saint elizabeth": "allspice_saint_elizabeth",
+    "angostura": "angostura",
+    "angostura bitters": "angostura",
+    "aromatic bitters": "angostura",
+    "bitters": "angostura",
+    "orange bitters": "orange_bitters",
+    "peychaud's bitters": "peychaud",
+    "peach bitters": "peach_bitters",
+    "grenadine": "grenadine",
+    "grenadine syrup": "grenadine",
+    "orgeat syrup": "orgeat",
+    "honey": "miel",
+    "raw honey": "miel",
+    "honey syrup": "sirop_de_miel",
+    "monin honey syrup": "sirop_de_miel",
+    "honey mix": "sirop_de_miel",
+    "agave nectar": "sirop_agave",
+    "raspberry syrup": "sirop_framboise",
+    "passion fruit syrup": "sirop_passion",
+    "elderflower cordial": "sirop_sureau",
+    "chamomile cordial": "sirop_camomille",
+    "donn's mix": "donns_mix",
+    "roses sweetened lime juice": "roses_lime",
+    "coconut cream": "creme_de_coco",
+    "coffee": "cafe",
+    "hot coffee": "cafe",
+    "strong espresso": "espresso",
+    "worcestershire sauce": "worcestershire",
+    "tabasco": "tabasco",
+    "celery salt": "sel_de_celeri",
+    "pepper": "poivre",
+    "vanilla extract": "extrait_vanille",
+    "vanilla sugar": "sucre_vanille",
+    "orange flower water": "eau_fleur_oranger",
+    "cloves": "clou_de_girofle",
+    "lemon": "citron",
+    "lemon juice": "citron",
+    "fresh lemon juice": "citron",
+    "freshly squeezed lemon juice": "citron",
+    "fresh squeezed lemon juice": "citron",
+    "lemon wheel": "citron",
+    "lime": "citron_vert",
+    "lime juice": "citron_vert",
+    "fresh lime juice": "citron_vert",
+    "freshly squeezed lime juice": "citron_vert",
+    "fresh squeezed lime juice": "citron_vert",
+    "fresh lime": "citron_vert",
+    "lime cut into small wedges": "citron_vert",
+    "orange": "orange",
+    "orange wheel": "orange",
+    "pineapple": "ananas",
+    "pineapple chunks": "ananas",
+    "mint": "menthe",
+    "mint leaves": "menthe",
+    "mint sprigs": "menthe",
+    "fresh mint sprigs": "menthe",
+    "italian basil leaves": "basilic",
+    "size sliced fresh ginger": "gingembre",
+    "gengibre slice": "gingembre",
+    "red chili pepper": "piment_rouge",
+    "cucumber": "concombre",
+    "strawberries": "fraise",
+    "blackberries": "mure",
+    "white peach puree": "puree_peche_blanche",
+    "passion fruit puree": "puree_passion",
+    "sugar cane juice": "jus_de_canne",
+    "orange juice": "jus_orange",
+    "fresh orange juice": "jus_orange",
+    "freshly squeezed orange juice": "jus_orange",
+    "pineapple juice": "jus_ananas",
+    "fresh pineapple juice": "jus_ananas",
+    "grapefruit juice": "jus_pamplemousse",
+    "cranberry juice": "cranberry",
+    "tomato juice": "jus_de_tomate",
+    "peach nectar": "nectar_peche",
+    "cola": "cola",
+    "ginger ale": "ginger_ale",
+    "ginger beer": "ginger_beer",
+    "tonic water": "tonic",
+    "7-up": "seven_up",
+    "sprite": "sprite",
+    "lemon-lime soda": "limonade",
+    "lemonade": "citronnade",
+    "limeade": "limeade",
+    "pink grapefruit soda": "soda_pamplemousse",
+    "maraschino cherry": {
+      "garniture": "cerise au marasquin"
+    },
+    "cherry": {
+      "garniture": "cerise"
+    },
+    "olive": {
+      "garniture": "olive"
+    },
+    "nutmeg": {
+      "garniture": "noix de muscade"
+    },
+    "lemon peel": {
+      "garniture": "zeste de citron"
+    },
+    "lime peel": {
+      "garniture": "zeste de citron vert"
+    },
+    "orange peel": {
+      "garniture": "zeste d'orange"
+    }
+  },
+  "par_cocktail": {
+    "Clove Cocktail|wine": "vin_muscat",
+    "Thriller|wine": "vin_gingembre",
+    "Whisky Mac|wine": "vin_gingembre",
+    "Quarter Deck Cocktail|sherry": "xeres_cream",
+    "Queen Bee|sherry": "xeres_cream",
+    "Broadside|wormwood": "armoise",
+    "Alexander|creme de cacao": "creme_de_cacao_brune",
+    "Grasshopper|creme de cacao": "creme_de_cacao_blanche",
+    "Ve.N.To|honey mix": "sirop_de_miel_camomille",
+    "57 Chevy with a White License Plate|creme de cacao": "creme_de_cacao_blanche",
+    "Orgasm|creme de cacao": "creme_de_cacao_blanche",
+    "Poppy Cocktail|creme de cacao": "creme_de_cacao_blanche"
+  }
+}
