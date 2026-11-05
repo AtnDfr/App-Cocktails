@@ -6,7 +6,7 @@ Elle contient 238 recettes : la liste officielle IBA et une sélection relue de 
 ## Utiliser l'application
 
 - **Sans rien installer** : ouvrir `livrable/bar-a-cocktails.html` (double-clic). Tout est dans ce seul fichier, qui marche sans connexion.
-- **En ligne** : via GitHub Pages, une fois la publication activée (voir plus bas).
+- **En ligne** : https://atndfr.github.io/App-Cocktails/
 
 Le bar coché est enregistré dans le navigateur, sur cet ordinateur.
 

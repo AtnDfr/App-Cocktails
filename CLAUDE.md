@@ -71,7 +71,7 @@ Application de cocktails, cadeau d'anniversaire pour le père de l'utilisateur.
 - Usage sur ordinateur, dans le navigateur.
 - Application web simple, sans serveur ni compte utilisateur.
 - Son bar (les ingrédients cochés) est sauvegardé localement sur son ordinateur.
-- Mise en ligne envisagée gratuitement (par ex. GitHub Pages), ou fichier local. **À confirmer plus tard.**
+- Mise en ligne : **GitHub Pages, active depuis le 2026-11-05** → https://atndfr.github.io/App-Cocktails/ ; et fichier local `livrable/bar-a-cocktails.html`.
 
 ---
 
