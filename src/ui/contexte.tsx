@@ -16,6 +16,7 @@ type Contexte = {
   bar: ReadonlySet<string>;
   basculer: (groupe: string) => void;
   ajouter: (groupes: string[]) => void;
+  remplacer: (groupes: Iterable<string>) => void;
   vider: () => void;
 };
 
@@ -38,6 +39,7 @@ export function FournisseurBar({ children }: { children: ReactNode }) {
       bar,
       basculer: (g) => setBar((b) => { const n = new Set(b); n.has(g) ? n.delete(g) : n.add(g); return n; }),
       ajouter: (gs) => setBar((b) => new Set([...b, ...gs])),
+      remplacer: (gs) => setBar(new Set(gs)),
       vider: () => setBar(new Set()),
     };
   }, [bar, idx]);

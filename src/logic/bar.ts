@@ -116,3 +116,19 @@ export function barIdeal(idx: Index, cocktails: Cocktail[], n: number, depart: B
 export function alcoolsDeBase(idx: Index, cocktail: Cocktail): string[] {
   return (idx.requis.get(cocktail.id) ?? []).filter((g) => idx.groupes.get(g)?.categorie === "alcool de base");
 }
+
+/** Groupes (non basiques) classés par nombre de cocktails qui les demandent, du plus au moins utilisé. */
+export function plusUtilises(idx: Index, n: number): string[] {
+  const compte = new Map<string, number>();
+  for (const gs of idx.requis.values()) for (const g of gs) compte.set(g, (compte.get(g) ?? 0) + 1);
+  return [...compte]
+    .sort((a, b) => b[1] - a[1] || nomDe(idx, a[0]).localeCompare(nomDe(idx, b[0]), "fr"))
+    .slice(0, n)
+    .map(([g]) => g);
+}
+
+/** Nombre de cocktails qui deviennent faisables en ajoutant ce groupe au bar (0 s'il y est déjà). */
+export function gainSiAjoute(idx: Index, cocktails: Cocktail[], bar: Bar, groupe: string): number {
+  if (bar.has(groupe)) return 0;
+  return cocktails.filter((c) => { const m = manquants(idx, c, bar); return m.length === 1 && m[0] === groupe; }).length;
+}
