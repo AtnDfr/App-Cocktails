@@ -44,7 +44,8 @@ Application de cocktails, cadeau d'anniversaire pour le père de l'utilisateur.
 - **Ne jamais inventer de recette ni de dose.** Une IA peut servir à traduire et harmoniser, mais tout est relu par l'utilisateur.
 
 ### 2.4 Ingrédients basiques (toujours considérés comme disponibles, jamais à cocher)
-- glace, sucre, sirop de sucre, eau, eau gazeuse, sel, **œufs / blanc d'œuf, crème, lait**.
+- glace, sucre, eau, sel, **œufs / blanc d'œuf, crème, lait**.
+- **Eau gazeuse et sirop de sucre ne sont plus basiques** (décision de l'utilisateur, 2026-11-06 : « pas toujours dispo ») : à cocher, l'eau gazeuse dans les softs, le sirop de sucre dans le placard.
 - ATTENTION : les citrons, citrons verts, agrumes et fruits en général **NE SONT PAS** basiques. Ce sont des ingrédients à acheter, qu'il coche dans son bar s'il en a.
 - La **menthe n'est pas basique** : ingrédient « frais », à cocher.
 - L'**Angostura et les bitters** ne sont pas basiques : produits signature, non substituables, à acheter (catégorie « placard »).
