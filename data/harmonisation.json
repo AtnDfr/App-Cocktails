@@ -13,8 +13,7 @@
     },
     "sirop_de_sucre": {
       "nom": "Sirop de sucre",
-      "categorie": "placard",
-      "basique": true
+      "categorie": "placard"
     },
     "eau": {
       "nom": "Eau",
@@ -23,8 +22,7 @@
     },
     "eau_gazeuse": {
       "nom": "Eau gazeuse",
-      "categorie": "soft",
-      "basique": true
+      "categorie": "soft"
     },
     "sel": {
       "nom": "Sel",

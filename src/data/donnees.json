@@ -418,7 +418,7 @@
    "id": "eau_gazeuse",
    "nom": "Eau gazeuse",
    "categorie": "soft",
-   "basique": true
+   "basique": false
   },
   {
    "id": "ginger_ale",
@@ -724,7 +724,7 @@
    "id": "sirop_de_sucre",
    "nom": "Sirop de sucre",
    "categorie": "placard",
-   "basique": true
+   "basique": false
   },
   {
    "id": "sirop_framboise",
