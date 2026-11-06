@@ -1,10 +1,11 @@
-# Publie l'application sur GitHub Pages à chaque push sur la branche principale.
+# Publie l'application sur GitHub Pages à chaque push sur main (tests compris :
+# la publication est bloquée si les données de l'appli ne correspondent plus au tableur).
 # Prérequis (une fois) : Settings → Pages → Source : « GitHub Actions ».
 name: Publier sur GitHub Pages
 
 on:
   push:
-    branches: [main, claude/peaceful-hypatia-43phdj]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -28,6 +29,8 @@ jobs:
       - run: npm ci
       - run: npm test
       - run: npm run build
+      # Version hors ligne en un seul fichier, téléchargeable depuis le site.
+      - run: npx vite build --mode fichier && cp dist-fichier/index.html dist/bar-a-cocktails.html
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
