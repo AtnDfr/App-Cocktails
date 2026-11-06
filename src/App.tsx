@@ -3,7 +3,6 @@ import { Cocktails } from "./ui/Cocktails.tsx";
 import { FicheCocktail } from "./ui/FicheCocktail.tsx";
 import { MonBar } from "./ui/MonBar.tsx";
 import { QuoiAcheter } from "./ui/QuoiAcheter.tsx";
-import { useBar } from "./ui/contexte.tsx";
 import { lien, useRoute } from "./ui/routes.ts";
 
 const ONGLETS = [
@@ -15,7 +14,6 @@ const ONGLETS = [
 
 export function App() {
   const route = useRoute();
-  const { donnees } = useBar();
   const actif = route.ecran === "cocktail" ? "cocktails" : route.ecran;
   return (
     <>
@@ -32,9 +30,9 @@ export function App() {
         {route.ecran === "acheter" && <QuoiAcheter />}
         {route.ecran === "ideal" && <BarIdeal />}
       </main>
-      <footer className="pied">
-        {donnees.cocktails.length} recettes (IBA et TheCocktailDB) · données {__EMPREINTE_DONNEES__}
-        {location.protocol !== "file:" && <> · <a href="bar-a-cocktails.html" download>Télécharger la version hors ligne</a></>}
+      {/* data-donnees : empreinte des données, invisible, vérifiée par src/data/sync.test.ts */}
+      <footer className="pied" data-donnees={__EMPREINTE_DONNEES__}>
+        {location.protocol !== "file:" && <a href="bar-a-cocktails.html" download>Télécharger la version hors ligne</a>}
       </footer>
     </>
   );
