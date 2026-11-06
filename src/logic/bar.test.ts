@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import type { Cocktail, Donnees } from "../data/types.ts";
-import { alcoolsDeBase, barIdeal, classer, indexer, manquants, quoiAcheter } from "./bar.ts";
+import { alcoolsDeBase, barIdeal, classer, gainSiAjoute, indexer, manquants, plusUtilises, quoiAcheter } from "./bar.ts";
 import vraiesDonnees from "../data/donnees.json";
 
 const ligne = (ingredient: string, optionnel = false) => ({ ingredient, ml: 30, texte: null, optionnel });
@@ -103,6 +103,22 @@ describe("barIdeal", () => {
   it("peut partir du bar existant", () => {
     const r = barIdeal(idx, d.cocktails, 1, new Set(["gin", "vermouth_rouge"]));
     expect(r.etapes[0].groupe).toBe("campari");
+  });
+});
+
+describe("plusUtilises", () => {
+  it("classe les groupes non basiques par nombre de cocktails", () => {
+    // gin : 3, vermouth rouge : 3, campari : 2 ; le sucre (basique) n'apparaît jamais
+    expect(plusUtilises(idx, 3)).toEqual(["gin", "vermouth_rouge", "campari"]);
+    expect(plusUtilises(idx, 50)).not.toContain("sucre");
+  });
+});
+
+describe("gainSiAjoute", () => {
+  it("compte les cocktails débloqués par un ajout", () => {
+    expect(gainSiAjoute(idx, d.cocktails, new Set(["gin", "vermouth_rouge", "whiskey_americain"]), "campari")).toBe(2);
+    expect(gainSiAjoute(idx, d.cocktails, new Set(["gin"]), "campari")).toBe(0);
+    expect(gainSiAjoute(idx, d.cocktails, new Set(["campari"]), "campari")).toBe(0);
   });
 });
 

@@ -110,3 +110,14 @@ table { border-collapse: collapse; width: 100%; }
 .lot-entete { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .4rem 1rem; margin-bottom: .8rem; font-size: 1.05rem; }
 .lot-entete strong { color: var(--accent); }
 .lot-entete button.discret { background: var(--surface); }
+
+.outils-bar { position: sticky; top: 3.4rem; z-index: 5; padding: .6rem 0; background: var(--fond); }
+.outils-bar input[type="search"] { max-width: 520px; }
+.interrupteur { display: inline-flex; align-items: center; gap: .4rem; color: var(--doux); cursor: pointer; }
+.interrupteur input { accent-color: var(--ok); }
+.courants { padding: .2rem 1rem 1rem; border-radius: 14px; background: var(--accent-doux); }
+.courants h2 { border-bottom: none; }
+.sauvegarde { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--ligne); }
+button:disabled { opacity: .45; cursor: default; }
+.toast { position: fixed; left: 50%; bottom: 1.5rem; transform: translateX(-50%); padding: .7rem 1.2rem; border-radius: 999px; background: var(--texte); color: var(--fond); box-shadow: 0 4px 18px rgb(0 0 0 / .18); animation: apparition .2s ease-out; }
+@keyframes apparition { from { opacity: 0; transform: translate(-50%, .5rem); } }
