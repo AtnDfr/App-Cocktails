@@ -1,12 +1,12 @@
 import { useMemo, useState } from "react";
 import type { Cocktail } from "../data/types.ts";
-import { alcoolsDeBase, classer, manquants } from "../logic/bar.ts";
+import { alcoolsDeBase, classer, manquants, quoiAcheter } from "../logic/bar.ts";
 import { useBar } from "./contexte.tsx";
 import { lien } from "./routes.ts";
 import { normaliser, pluriel } from "./texte.ts";
 
 export function Cocktails() {
-  const { donnees, idx, bar, nomGroupe } = useBar();
+  const { donnees, idx, bar, nomGroupe, basculer } = useBar();
   const [recherche, setRecherche] = useState("");
   const [alcool, setAlcool] = useState("");
 
@@ -21,6 +21,8 @@ export function Cocktails() {
     .filter((c) => !alcool || alcoolsDeBase(idx, c).includes(alcool))
     .sort((a, b) => a.nom.localeCompare(b.nom, "fr"));
   const { faisables, aUnPres, autres } = classer(idx, filtres, bar);
+  // « À 1 ingrédient près », regroupé par ingrédient à acheter : les achats qui débloquent le plus de cocktails d'abord.
+  const parAchat = quoiAcheter(idx, aUnPres, bar);
 
   return (
     <section>
@@ -37,16 +39,28 @@ export function Cocktails() {
       </div>
       {bar.size === 0 && <p className="aide">Ton bar est vide : commence par <a href={lien.bar}>cocher tes ingrédients</a>.</p>}
       <Liste titre="Faisables" cocktails={faisables} vide="Aucun cocktail faisable avec ce bar pour l'instant." />
-      <Liste titre="À 1 ingrédient près" cocktails={aUnPres} vide="Aucun." />
+      <div className="liste">
+        <h2>À 1 ingrédient près <span className="compte">{aUnPres.length}</span></h2>
+        {parAchat.length === 0 && <p className="vide">Aucun.</p>}
+        {parAchat.map((a) => (
+          <div key={a.groupe} className="lot">
+            <div className="lot-entete">
+              <span>Avec <strong>{nomGroupe(a.groupe)}</strong>, tu pourrais faire {pluriel(a.debloques.length, "cocktail")} de plus</span>
+              <button className="discret" onClick={() => basculer(a.groupe)}>J'en ai</button>
+            </div>
+            {cartes(a.debloques, false)}
+          </div>
+        ))}
+      </div>
       <Liste titre="Les autres" cocktails={autres} vide="Aucun." replie />
     </section>
   );
 
-  function Liste({ titre, cocktails, vide, replie }: { titre: string; cocktails: Cocktail[]; vide: string; replie?: boolean }) {
-    const contenu = cocktails.length ? (
+  function cartes(cocktails: Cocktail[], afficherManque = true) {
+    return (
       <ul className="cartes">
         {cocktails.map((c) => {
-          const m = manquants(idx, c, bar);
+          const m = afficherManque ? manquants(idx, c, bar) : [];
           return (
             <li key={c.id}>
               <a className="carte" href={lien.cocktail(c.id)}>
@@ -63,7 +77,11 @@ export function Cocktails() {
           );
         })}
       </ul>
-    ) : <p className="vide">{vide}</p>;
+    );
+  }
+
+  function Liste({ titre, cocktails, vide, replie }: { titre: string; cocktails: Cocktail[]; vide: string; replie?: boolean }) {
+    const contenu = cocktails.length ? cartes(cocktails) : <p className="vide">{vide}</p>;
     return replie ? (
       <details className="liste">
         <summary><h2>{titre} <span className="compte">{cocktails.length}</span></h2></summary>
