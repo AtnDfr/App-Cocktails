@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -p . && vite build",
-    "build:fichier": "vite build --mode fichier",
+    "build:fichier": "vite build --mode fichier && cp dist-fichier/index.html livrable/bar-a-cocktails.html",
     "preview": "vite preview",
     "test": "vitest run",
     "data": "tsx scripts/export-json.ts",

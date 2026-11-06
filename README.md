@@ -6,7 +6,7 @@ Elle contient 238 recettes : la liste officielle IBA et une sélection relue de 
 ## Utiliser l'application
 
 - **Sans rien installer** : ouvrir `livrable/bar-a-cocktails.html` (double-clic). Tout est dans ce seul fichier, qui marche sans connexion.
-- **En ligne** : https://atndfr.github.io/App-Cocktails/
+- **En ligne** : https://atndfr.github.io/App-Cocktails/ (la version hors ligne y est aussi téléchargeable, lien en bas de page)
 
 Le bar coché est enregistré dans le navigateur, sur cet ordinateur.
 
@@ -30,10 +30,11 @@ npm run build:fichier  # build en un seul fichier (dist-fichier/index.html)
 Pour mettre à jour les données :
 1. Modifier `data/cocktails.xlsx`, qui fait foi.
 2. Lancer `npm run data` pour régénérer `src/data/donnees.json`. Le script vérifie les données et refuse l'export en cas d'erreur.
-3. Lancer `npm run build:fichier`, puis copier le fichier produit dans `livrable/`.
+3. Lancer `npm run build:fichier`, qui met à jour `livrable/bar-a-cocktails.html`.
+4. Lancer `npm test` : un test vérifie que l'appli et le livrable embarquent bien les données du tableur. La publication est bloquée tant qu'il échoue.
 
 L'historique de constitution de la base (imports bruts, sélection, harmonisation, traductions) et toutes les décisions sont décrits dans `CLAUDE.md`.
 
 ## Publication sur GitHub Pages
 
-À faire une seule fois : dans le dépôt, **Settings → Pages → Source : « GitHub Actions »**. Le workflow `.github/workflows/pages.yml` publie ensuite l'appli à chaque push.
+À faire une seule fois : dans le dépôt, **Settings → Pages → Source : « GitHub Actions »**. Le workflow `.github/workflows/pages.yml` publie ensuite l'appli à chaque push sur `main`.

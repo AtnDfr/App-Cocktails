@@ -100,3 +100,5 @@ table { border-collapse: collapse; width: 100%; }
 .ideal th { color: var(--doux); font-weight: normal; }
 .ideal .nombre { font-variant-numeric: tabular-nums; font-weight: 600; }
 .ideal tr.possede { background: var(--ok-doux); }
+
+.pied { max-width: 1100px; margin: 0 auto; padding: 0 1rem 2rem; font-size: .8rem; color: var(--doux); }

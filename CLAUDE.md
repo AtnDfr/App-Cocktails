@@ -133,40 +133,54 @@ Tableur `.xlsx` à 3 onglets, versionné dans le dépôt = **source de vérité 
 
 ---
 
-## 8. Avancement de l'étape 1 et organisation des fichiers
+## 8. Étape 1 — FAITE : constitution de la base (2026-11-05)
 
-- `data/raw/iba.json` (102 cocktails) et `data/raw/thecocktaildb.json` (441) : imports bruts **figés**, faits une seule fois. Les scripts `npm run fetch:iba` / `fetch:cocktaildb` refusent d'écraser sans `--force`.
-- `scripts/lib/dose.ts` : conversion des doses (testée, `npm test`). Toute dose non reconnue → « à vérifier ».
-- `scripts/lib/normalize.ts` : identifiants d'ingrédients **provisoires** pour la sélection ; la vraie harmonisation se fait en 1e.
-- `npm run select` → `data/work/selection-candidats.xlsx` (relecture de la sélection TheCocktailDB), `data/work/rapport-selection.md`, `data/work/iba-doses.csv`. La proposition de tri est dans `data/work/proposition-selection.json`.
-- **Sélection VALIDÉE** (2026-11-05) : 239 cocktails = 102 IBA + 137 TheCocktailDB (proposition « garder » acceptée telle quelle). Liste figée dans `data/selection-validee.json`, qui fait foi pour la suite.
-- Doses IBA tranchées (2026-11-05) : IBA Tiki « 90 » et « 30 » = ml ; Tuxedo ½ et ¼ de cuillère de bar gardés **en texte**. Corrections des sources dans `data/corrections.json`.
-- Harmonisation : `data/harmonisation.json` (groupes de substitution, ingrédients marque/variante, rattachement de chaque libellé brut). `scripts/lib/recipes.ts` charge les 239 recettes ; `npx tsx scripts/check-recipes.ts` vérifie qu'aucun libellé n'est orphelin.
-- Groupes de substitution validés (2026-11-05) :
-  - **whiskey américain** = bourbon, rye, Tennessee, blended (y compris Crown Royal, canadien, à confirmer en relecture) ; **scotch** à part ; **irlandais** à part ;
+### Résultat
+- **238 cocktails** = 102 IBA + 136 TheCocktailDB, dans `data/cocktails.xlsx`, **qui fait foi**.
+- Liste figée dans `data/selection-validee.json` : la proposition « garder » a été validée (239), puis l'Empellón Cocina's Fat-Washed Mezcal a été retiré (voir plus bas).
+
+### Fichiers, dans l'ordre de la chaîne
+- `data/raw/iba.json` (102) et `data/raw/thecocktaildb.json` (441) : imports bruts **figés**, faits une seule fois. `npm run fetch:iba` / `fetch:cocktaildb` refusent d'écraser sans `--force`.
+- `npm run select` → `data/work/` : classeur et rapport de sélection, proposition de tri (`proposition-selection.json`). Historique de l'étape 1b, plus utilisé ensuite.
+- `scripts/lib/dose.ts` : conversion des doses (testée). Toute dose non reconnue → « à vérifier ».
+- `data/corrections.json` : corrections des sources (coquilles, unités manquantes, méthode du Dry Martini non importée), chacune avec son motif.
+- `data/harmonisation.json` : groupes de substitution, ingrédients marque / variante, rattachement de chaque libellé brut. `npm run check` vérifie qu'aucun libellé n'est orphelin.
+- `data/traductions/*.json` : traductions IA (étapes, verre, technique, garniture ; doses texte dans `doses-texte.json`). Points relevés : `data/remarques-relecture.json`.
+- `npm run build:xlsx` → `data/cocktails.xlsx` (3 onglets du modèle + colonnes « (relecture) » non exportées). **Ne plus le régénérer** : il fait foi et peut contenir des corrections à la main. Le script refuse d'écraser sans `--force`.
+- `npm run data` → `src/data/donnees.json`, lu par l'appli (validations bloquantes).
+
+### Décisions prises pendant l'étape 1 (validées ou déléguées par l'utilisateur)
+- Doses IBA : IBA Tiki « 90 » et « 30 » = ml ; Tuxedo ½ et ¼ de cuillère de bar gardés **en texte**.
+- Groupes de substitution :
+  - **whiskey américain** = bourbon, rye, Tennessee, blended, y compris Crown Royal (canadien) ; **scotch** à part ; **irlandais** à part ;
   - **rhum blanc** / **rhum ambré** (vieux, brun, jamaïcain, agricole, 151) ;
   - **brandy** = cognac et brandy (calvados à part) ;
   - **triple sec** = Cointreau, triple sec, curaçao orange **et Grand Marnier**.
-- Jus : citron et citron vert (jus ou fruit) = ingrédients **frais** ; jus d'orange, d'ananas, de pamplemousse, de cranberry = **softs** (comme listé au §2.7) ; l'orange ou l'ananas en morceaux = **frais**.
-- Lignes TheCocktailDB de type zeste / cerise / olive / muscade : traitées comme **garnitures** (texte), conformément au §2.8.
-- Traductions (IA, à relire) : `data/traductions/*.json` (étapes, verre, technique, garniture par cocktail ; doses texte dans `doses-texte.json`). Points relevés : `data/remarques-relecture.json`.
-- **Tableur de relecture** : `npm run build:xlsx` → `data/cocktails.xlsx` (3 onglets du modèle + colonnes « (relecture) » non exportées, lignes à vérifier surlignées). Une fois relu, **c'est lui qui fait foi** : le script refuse de l'écraser sans `--force`.
-- Relecture déléguée par l'utilisateur (2026-11-05 : « je te fais confiance, fais tout sans me demander confirmation ») :
+- Jus : citron et citron vert (jus ou fruit) = **frais** ; jus d'orange, d'ananas, de pamplemousse, de cranberry = **softs** (§2.7) ; orange ou ananas en morceaux = **frais**.
+- Lignes TheCocktailDB de type zeste / cerise / olive / muscade = **garnitures** (texte), conformément au §2.8.
+- Catégories : vermouths / apéritifs / amers → « liqueur » ; vins, effervescents, porto, xérès, bière → « alcool de base ».
+- Relecture déléguée (2026-11-05 : « je te fais confiance, fais tout sans me demander confirmation ») :
   - **B-52 conservé** (c'est un shot) : doses en fractions du verre, gardées en texte (« ⅓ du verre ») ;
-  - Quarter Deck : « 1 1/2 » rhum lu comme 1 1/2 oz = 45 ml ;
-  - **Empellón Cocina's Fat-Washed Mezcal retiré** (irréalisable à la maison) → **238 cocktails** ;
-  - catégories : vermouths / apéritifs / amers → « liqueur » ; vins, effervescents, porto, xérès, bière → « alcool de base » ;
-  - Crown Royal (canadien) dans « whiskey américain ».
-- `npm run data` (`scripts/export-json.ts`) : tableur → `src/data/donnees.json` (validations bloquantes).
+  - Quarter Deck : « 1 1/2 » de rhum lu comme 1 1/2 oz = 45 ml ;
+  - **Empellón Cocina's Fat-Washed Mezcal retiré** (irréalisable à la maison).
 
-## 10. Étapes 2 et 3 — FAITES (2026-11-05)
+## 9. Étapes 2 et 3 — FAITES (2026-11-05)
 
-- Logique pure dans `src/logic/bar.ts` (faisables, à 1 près, quoi acheter, bar idéal glouton, softs hors du compte N) et `src/logic/stockage.ts` (localStorage) ; tests Vitest.
+- Logique pure : `src/logic/bar.ts` (faisables, à 1 près, quoi acheter, bar idéal glouton, softs hors du compte N) et `src/logic/stockage.ts` (localStorage) ; tests Vitest.
 - Écrans dans `src/ui/` (Mon bar, Cocktails, Fiche, Quoi acheter, Bar idéal) ; navigation par hash (`src/ui/routes.ts`).
 - Le bar stocke des **groupes** (génériques) : on coche « Triple sec », pas « Cointreau ».
-- Livraison : `livrable/bar-a-cocktails.html` (fichier unique, hors ligne, `npm run build:fichier`) et GitHub Pages (`.github/workflows/pages.yml`, à activer dans Settings → Pages → GitHub Actions).
+- Livraison :
+  - en ligne sur GitHub Pages, https://atndfr.github.io/App-Cocktails/, publié par `.github/workflows/pages.yml` à chaque push sur `main` ;
+  - fichier unique hors ligne : `livrable/bar-a-cocktails.html` (`npm run build:fichier`), aussi téléchargeable sur le site (lien en pied de page, reconstruit à chaque publication).
+- Pull request [atndfr/app-cocktails#1](https://github.com/AtnDfr/App-Cocktails/pull/1) fusionnée dans `main` le 2026-11-06.
 
-## 9. Règles pour les sessions futures
+## 10. Modifier les données ensuite
+
+1. Corriger `data/cocktails.xlsx` (jamais `src/data/donnees.json` à la main).
+2. `npm run data`, puis `npm run build:fichier` (qui met aussi à jour `livrable/bar-a-cocktails.html`).
+3. `npm test` : un test vérifie que `donnees.json` correspond bien au tableur et que le livrable embarque ces données. Il échoue si l'une des deux étapes a été oubliée, et bloque alors la publication.
+
+## 11. Règles pour les sessions futures
 
 - Lire ce fichier en début de session.
 - Ne jamais remettre en cause une décision ci-dessus sans le signaler.
