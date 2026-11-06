@@ -105,3 +105,8 @@ table { border-collapse: collapse; width: 100%; }
 
 .pied { max-width: 1100px; margin: 0 auto; padding: 0 1rem 2rem; font-size: .85rem; }
 .pied:empty { display: none; }
+
+.lot { margin: 0 0 1.4rem; padding: 1rem; border: 1px solid var(--ligne); border-radius: 14px; background: var(--accent-doux); }
+.lot-entete { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .4rem 1rem; margin-bottom: .8rem; font-size: 1.05rem; }
+.lot-entete strong { color: var(--accent); }
+.lot-entete button.discret { background: var(--surface); }
