@@ -1,0 +1,661 @@
+{
+  "_doc": "Sélection validée par l’utilisateur le 2026-11-05 (proposition « garder » acceptée telle quelle). Fait foi pour la suite de l’étape 1.",
+  "validee_le": "2026-11-05",
+  "total": 238,
+  "iba": [
+    "Alexander",
+    "Americano",
+    "Angel Face",
+    "Aviation",
+    "Bee’s Knees",
+    "Bellini",
+    "Between the Sheets",
+    "Black Russian",
+    "Bloody Mary",
+    "Boulevardier",
+    "Bramble",
+    "Brandy Crusta",
+    "Caipirinha",
+    "Canchanchara",
+    "Cardinale",
+    "Casino",
+    "Champagne Cocktail",
+    "Chartreuse Swizzle",
+    "Clover Club",
+    "Corpse Reviver #2",
+    "Cosmopolitan",
+    "Cuba Libre",
+    "Daiquiri",
+    "Dark ‘N’ Stormy",
+    "Don’s Special Daiquiri",
+    "Dry Martini",
+    "Espresso Martini",
+    "Fernandito",
+    "French 75",
+    "French Connection",
+    "French Martini",
+    "Garibaldi",
+    "Gin Basil Smash",
+    "Gin Fizz",
+    "Grand Margarita",
+    "Grasshopper",
+    "Hanky Panky",
+    "Hemingway Special",
+    "Horse’s Neck",
+    "IBA Tiki",
+    "Illegal",
+    "Irish Coffee",
+    "John Collins",
+    "Jungle Bird",
+    "Kir",
+    "Last Word",
+    "Lemon Drop Martini",
+    "Long Island Iced Tea",
+    "Mai-Tai",
+    "Manhattan",
+    "Margarita",
+    "Martinez",
+    "Mary Pickford",
+    "Mimosa",
+    "Mint Julep",
+    "Missionary’s Downfall",
+    "Mojito",
+    "Monkey Gland",
+    "Moscow Mule",
+    "Naked and Famous",
+    "Negroni",
+    "New York Sour",
+    "Old Cuban",
+    "Old Fashioned",
+    "Paloma",
+    "Paper Plane",
+    "Paradise",
+    "Penicillin",
+    "Pina Colada",
+    "Pisco Punch",
+    "Pisco Sour",
+    "Planters Punch",
+    "Porn Star Martini",
+    "Porto Flip",
+    "Rabo de Galo",
+    "Ramos Fizz",
+    "Remember the Maine",
+    "Russian Spring Punch",
+    "Rusty Nail",
+    "Sazerac",
+    "Sea Breeze",
+    "Sex on the Beach",
+    "Sherry Cobbler",
+    "Sidecar",
+    "Singapore Sling",
+    "South Side",
+    "Spicy Fifty",
+    "Spritz",
+    "Stinger",
+    "Suffering Bastard",
+    "Tequila Sunrise",
+    "Three Dots and a Dash",
+    "Tipperary",
+    "Tommy’s Margarita",
+    "Trinidad Sour",
+    "Tuxedo",
+    "Ve.N.To",
+    "Vesper",
+    "Vieux Carré",
+    "Whiskey Sour",
+    "White Lady",
+    "Zombie"
+  ],
+  "thecocktaildb": [
+    {
+      "idDrink": "15346",
+      "nom": "155 Belmont"
+    },
+    {
+      "idDrink": "14598",
+      "nom": "50/50"
+    },
+    {
+      "idDrink": "14029",
+      "nom": "57 Chevy with a White License Plate"
+    },
+    {
+      "idDrink": "13940",
+      "nom": "69 Special"
+    },
+    {
+      "idDrink": "178318",
+      "nom": "747 Drink"
+    },
+    {
+      "idDrink": "16108",
+      "nom": "9 1/2 Weeks"
+    },
+    {
+      "idDrink": "17833",
+      "nom": "A. J."
+    },
+    {
+      "idDrink": "17222",
+      "nom": "A1"
+    },
+    {
+      "idDrink": "17835",
+      "nom": "Abilene"
+    },
+    {
+      "idDrink": "17836",
+      "nom": "Acapulco"
+    },
+    {
+      "idDrink": "17225",
+      "nom": "Ace"
+    },
+    {
+      "idDrink": "17837",
+      "nom": "Adam"
+    },
+    {
+      "idDrink": "17227",
+      "nom": "Addington"
+    },
+    {
+      "idDrink": "17228",
+      "nom": "Addison"
+    },
+    {
+      "idDrink": "17839",
+      "nom": "Affair"
+    },
+    {
+      "idDrink": "17840",
+      "nom": "Affinity"
+    },
+    {
+      "idDrink": "11020",
+      "nom": "Algonquin"
+    },
+    {
+      "idDrink": "11023",
+      "nom": "Almeria"
+    },
+    {
+      "idDrink": "11046",
+      "nom": "Applecar"
+    },
+    {
+      "idDrink": "11055",
+      "nom": "Artillery"
+    },
+    {
+      "idDrink": "13938",
+      "nom": "AT&T"
+    },
+    {
+      "idDrink": "16419",
+      "nom": "Avalanche"
+    },
+    {
+      "idDrink": "15853",
+      "nom": "B-52"
+    },
+    {
+      "idDrink": "11060",
+      "nom": "Balmoral"
+    },
+    {
+      "idDrink": "17209",
+      "nom": "Barracuda"
+    },
+    {
+      "idDrink": "17254",
+      "nom": "Bijou"
+    },
+    {
+      "idDrink": "11106",
+      "nom": "Blackthorn"
+    },
+    {
+      "idDrink": "11120",
+      "nom": "Bluebird"
+    },
+    {
+      "idDrink": "11124",
+      "nom": "Boomerang"
+    },
+    {
+      "idDrink": "11129",
+      "nom": "Boston Sour"
+    },
+    {
+      "idDrink": "11149",
+      "nom": "Boxcar"
+    },
+    {
+      "idDrink": "178311",
+      "nom": "Broadside"
+    },
+    {
+      "idDrink": "178310",
+      "nom": "Brooklyn"
+    },
+    {
+      "idDrink": "11222",
+      "nom": "Casa Blanca"
+    },
+    {
+      "idDrink": "11239",
+      "nom": "Cherry Rum"
+    },
+    {
+      "idDrink": "11242",
+      "nom": "Chicago Fizz"
+    },
+    {
+      "idDrink": "11251",
+      "nom": "City Slicker"
+    },
+    {
+      "idDrink": "11255",
+      "nom": "Clove Cocktail"
+    },
+    {
+      "idDrink": "17830",
+      "nom": "Corn n Oil"
+    },
+    {
+      "idDrink": "14608",
+      "nom": "Cream Soda"
+    },
+    {
+      "idDrink": "178334",
+      "nom": "Death in the Afternoon"
+    },
+    {
+      "idDrink": "17187",
+      "nom": "Derby"
+    },
+    {
+      "idDrink": "11320",
+      "nom": "Dragonfly"
+    },
+    {
+      "idDrink": "11324",
+      "nom": "Dry Rob Roy"
+    },
+    {
+      "idDrink": "11326",
+      "nom": "Dubonnet Cocktail"
+    },
+    {
+      "idDrink": "11339",
+      "nom": "English Rose Cocktail"
+    },
+    {
+      "idDrink": "11368",
+      "nom": "Flying Dutchman"
+    },
+    {
+      "idDrink": "11369",
+      "nom": "Flying Scotchman"
+    },
+    {
+      "idDrink": "11382",
+      "nom": "Frisco Sour"
+    },
+    {
+      "idDrink": "17255",
+      "nom": "Gimlet"
+    },
+    {
+      "idDrink": "11408",
+      "nom": "Gin Daisy"
+    },
+    {
+      "idDrink": "17230",
+      "nom": "Gin Rickey"
+    },
+    {
+      "idDrink": "11415",
+      "nom": "Gin Sling"
+    },
+    {
+      "idDrink": "11416",
+      "nom": "Gin Smash"
+    },
+    {
+      "idDrink": "11418",
+      "nom": "Gin Squirt"
+    },
+    {
+      "idDrink": "11419",
+      "nom": "Gin Swizzle"
+    },
+    {
+      "idDrink": "178365",
+      "nom": "Gin Tonic"
+    },
+    {
+      "idDrink": "11422",
+      "nom": "Godchild"
+    },
+    {
+      "idDrink": "11423",
+      "nom": "Godfather"
+    },
+    {
+      "idDrink": "11433",
+      "nom": "Grass Skirt"
+    },
+    {
+      "idDrink": "17252",
+      "nom": "Greyhound"
+    },
+    {
+      "idDrink": "11462",
+      "nom": "Harvey Wallbanger"
+    },
+    {
+      "idDrink": "11470",
+      "nom": "Havana Cocktail"
+    },
+    {
+      "idDrink": "11472",
+      "nom": "Hawaiian Cocktail"
+    },
+    {
+      "idDrink": "11476",
+      "nom": "Highland Fling Cocktail"
+    },
+    {
+      "idDrink": "178316",
+      "nom": "Honey Bee"
+    },
+    {
+      "idDrink": "14782",
+      "nom": "Hot Creamy Bush"
+    },
+    {
+      "idDrink": "17239",
+      "nom": "Hunter's Moon"
+    },
+    {
+      "idDrink": "12772",
+      "nom": "Iced Coffee Fillip"
+    },
+    {
+      "idDrink": "12706",
+      "nom": "Imperial Cocktail"
+    },
+    {
+      "idDrink": "11524",
+      "nom": "Imperial Fizz"
+    },
+    {
+      "idDrink": "11542",
+      "nom": "Jack Rose Cocktail"
+    },
+    {
+      "idDrink": "13847",
+      "nom": "Jackhammer"
+    },
+    {
+      "idDrink": "14095",
+      "nom": "Jamaica Kiss"
+    },
+    {
+      "idDrink": "11558",
+      "nom": "Japanese Fizz"
+    },
+    {
+      "idDrink": "11566",
+      "nom": "Jewel Of The Nile"
+    },
+    {
+      "idDrink": "11600",
+      "nom": "Kamikaze"
+    },
+    {
+      "idDrink": "11602",
+      "nom": "Kentucky B And B"
+    },
+    {
+      "idDrink": "11604",
+      "nom": "Kentucky Colonel"
+    },
+    {
+      "idDrink": "13190",
+      "nom": "Kool-Aid Shot"
+    },
+    {
+      "idDrink": "11658",
+      "nom": "Loch Lomond"
+    },
+    {
+      "idDrink": "11662",
+      "nom": "London Town"
+    },
+    {
+      "idDrink": "13196",
+      "nom": "Long vodka"
+    },
+    {
+      "idDrink": "178370",
+      "nom": "Mauresque"
+    },
+    {
+      "idDrink": "14842",
+      "nom": "Midnight Mint"
+    },
+    {
+      "idDrink": "11798",
+      "nom": "Monkey Wrench"
+    },
+    {
+      "idDrink": "178315",
+      "nom": "Munich Mule"
+    },
+    {
+      "idDrink": "13204",
+      "nom": "New York Lemonade"
+    },
+    {
+      "idDrink": "17827",
+      "nom": "Old Pal"
+    },
+    {
+      "idDrink": "11870",
+      "nom": "Orange Oasis"
+    },
+    {
+      "idDrink": "16995",
+      "nom": "Orange Whip"
+    },
+    {
+      "idDrink": "11872",
+      "nom": "Orgasm"
+    },
+    {
+      "idDrink": "17249",
+      "nom": "Pegu Club"
+    },
+    {
+      "idDrink": "11936",
+      "nom": "Pink Gin"
+    },
+    {
+      "idDrink": "13072",
+      "nom": "Popped cherry"
+    },
+    {
+      "idDrink": "11959",
+      "nom": "Poppy Cocktail"
+    },
+    {
+      "idDrink": "11961",
+      "nom": "Port And Starboard"
+    },
+    {
+      "idDrink": "11983",
+      "nom": "Quaker's Cocktail"
+    },
+    {
+      "idDrink": "11985",
+      "nom": "Quarter Deck Cocktail"
+    },
+    {
+      "idDrink": "11987",
+      "nom": "Queen Bee"
+    },
+    {
+      "idDrink": "11989",
+      "nom": "Queen Charlotte"
+    },
+    {
+      "idDrink": "11991",
+      "nom": "Queen Elizabeth"
+    },
+    {
+      "idDrink": "15761",
+      "nom": "Quick-sand"
+    },
+    {
+      "idDrink": "16031",
+      "nom": "Radler"
+    },
+    {
+      "idDrink": "178333",
+      "nom": "Raspberry Julep"
+    },
+    {
+      "idDrink": "17114",
+      "nom": "Ruby Tuesday"
+    },
+    {
+      "idDrink": "12067",
+      "nom": "Rum Cobbler"
+    },
+    {
+      "idDrink": "12071",
+      "nom": "Rum Cooler"
+    },
+    {
+      "idDrink": "12089",
+      "nom": "Rum Old-fashioned"
+    },
+    {
+      "idDrink": "12091",
+      "nom": "Rum Screwdriver"
+    },
+    {
+      "idDrink": "12093",
+      "nom": "Rum Sour"
+    },
+    {
+      "idDrink": "12097",
+      "nom": "Rum Toddy"
+    },
+    {
+      "idDrink": "12107",
+      "nom": "Salty Dog"
+    },
+    {
+      "idDrink": "12130",
+      "nom": "Scooter"
+    },
+    {
+      "idDrink": "12158",
+      "nom": "Scotch Sour"
+    },
+    {
+      "idDrink": "12162",
+      "nom": "Screwdriver"
+    },
+    {
+      "idDrink": "12256",
+      "nom": "Sol Y Sombra"
+    },
+    {
+      "idDrink": "12362",
+      "nom": "Tequila Fizz"
+    },
+    {
+      "idDrink": "12370",
+      "nom": "Tequila Sour"
+    },
+    {
+      "idDrink": "17826",
+      "nom": "The Jimmy Conway"
+    },
+    {
+      "idDrink": "178330",
+      "nom": "The Philosopher"
+    },
+    {
+      "idDrink": "12388",
+      "nom": "Thriller"
+    },
+    {
+      "idDrink": "12434",
+      "nom": "Valencia Cocktail"
+    },
+    {
+      "idDrink": "17217",
+      "nom": "Vampiro"
+    },
+    {
+      "idDrink": "12442",
+      "nom": "Vermouth Cassis"
+    },
+    {
+      "idDrink": "12444",
+      "nom": "Vesuvio"
+    },
+    {
+      "idDrink": "12446",
+      "nom": "Veteran"
+    },
+    {
+      "idDrink": "12450",
+      "nom": "Victor"
+    },
+    {
+      "idDrink": "16967",
+      "nom": "Vodka Fizz"
+    },
+    {
+      "idDrink": "178363",
+      "nom": "Vodka Lemon"
+    },
+    {
+      "idDrink": "178364",
+      "nom": "Vodka Tonic"
+    },
+    {
+      "idDrink": "12518",
+      "nom": "Whisky Mac"
+    },
+    {
+      "idDrink": "17219",
+      "nom": "Yellow Bird"
+    },
+    {
+      "idDrink": "14594",
+      "nom": "Zizi Coin-coin"
+    },
+    {
+      "idDrink": "16963",
+      "nom": "Zorbatini"
+    },
+    {
+      "idDrink": "15328",
+      "nom": "Zorro"
+    }
+  ],
+  "retires": [
+    {
+      "nom": "Empellón Cocina's Fat-Washed Mezcal",
+      "motif": "recette irréalisable à la maison (mezcal infusé à la graisse de porc fumée) ; retrait délégué par l'utilisateur, 2026-11-05"
+    }
+  ]
+}

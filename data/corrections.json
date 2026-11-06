@@ -1,0 +1,76 @@
+{
+  "_doc": "Corrections des données sources, chacune validée par l'utilisateur ou purement mécanique (coquille de la source). Appliquées par scripts/build-workbook.ts avant la conversion des doses.",
+  "iba_lignes": {
+    "IBA Tiki": {
+      "90 Fresh Pineapple Juice": {
+        "remplacer_par": [
+          "90 ml Fresh Pineapple Juice"
+        ],
+        "motif": "unité absente sur le site IBA ; ml confirmés par l'utilisateur (2026-11-05)"
+      },
+      "30 Fresh Lime Juice": {
+        "remplacer_par": [
+          "30 ml Fresh Lime Juice"
+        ],
+        "motif": "unité absente sur le site IBA ; ml confirmés par l'utilisateur (2026-11-05)"
+      }
+    },
+    "Three Dots and a Dash": {
+      "7.5 ml Allspice Saint Elizabeth15 ml Fresh Lime Juice": {
+        "remplacer_par": [
+          "7.5 ml Allspice Saint Elizabeth",
+          "15 ml Fresh Lime Juice"
+        ],
+        "motif": "deux lignes collées sur le site IBA (coquille), séparées sans changer les doses"
+      }
+    },
+    "Bloody Mary": {
+      "Tabasco, Celery Salt, Pepper (Up to taste)": {
+        "remplacer_par": [
+          "Tabasco (Up to taste)",
+          "Celery Salt (Up to taste)",
+          "Pepper (Up to taste)"
+        ],
+        "motif": "trois ingrédients sur une ligne, séparés ; dose « selon le goût » conservée"
+      }
+    }
+  },
+  "doses_texte": {
+    "Tuxedo": {
+      "1/2 Bar Spoon": "½ cuillère de bar",
+      "1/4 Bar Spoon": "¼ cuillère de bar",
+      "_motif": "fractions de cuillère de bar gardées en texte (décision de l'utilisateur, 2026-11-05)"
+    }
+  },
+  "iba_methode": {
+    "Dry Martini": {
+      "methode": [
+        "Pour all ingredients into mixing glass with ice cubes. Stir well.",
+        "Strain into chilled martini cocktail glass."
+      ],
+      "motif": "texte présent sur iba-world.com mais non lu par l'import (balisage différent) ; recopié tel quel le 2026-11-05"
+    }
+  },
+  "tcdb_doses": {
+    "Quick-sand|Orange juice": {
+      "dose": "250 ml",
+      "motif": "dose écrite « Add 250 ml » dans la source : seule la tournure change"
+    },
+    "B-52|Baileys irish cream": {
+      "dose": "1/3 du verre",
+      "motif": "shot en couches : la source donne des fractions du verre ; gardées en texte (B-52 conservé par l'utilisateur, 2026-11-05)"
+    },
+    "B-52|Grand Marnier": {
+      "dose": "1/3 du verre",
+      "motif": "idem"
+    },
+    "B-52|Kahlua": {
+      "dose": "1/4 du verre",
+      "motif": "idem"
+    },
+    "Quarter Deck Cocktail|Light rum": {
+      "dose": "1 1/2 oz",
+      "motif": "unité absente ; toutes les autres doses de la recette sont en oz (arbitrage délégué par l'utilisateur, 2026-11-05)"
+    }
+  }
+}

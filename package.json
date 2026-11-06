@@ -1,0 +1,35 @@
+{
+  "name": "app-cocktails",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -p . && vite build",
+    "build:fichier": "vite build --mode fichier",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "data": "tsx scripts/export-json.ts",
+    "check": "tsx scripts/check-recipes.ts",
+    "build:xlsx": "tsx scripts/build-workbook.ts",
+    "fetch:iba": "tsx scripts/fetch-iba.ts",
+    "fetch:cocktaildb": "tsx scripts/fetch-thecocktaildb.ts",
+    "select": "tsx scripts/select-candidates.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "@types/react": "^18.3.31",
+    "@types/react-dom": "^18.3.7",
+    "@vitejs/plugin-react": "^6.2.1",
+    "cheerio": "^1.2.0",
+    "exceljs": "^4.4.0",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.6",
+    "vite-plugin-singlefile": "^2.3.4",
+    "vitest": "^5.1.0"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
+}
