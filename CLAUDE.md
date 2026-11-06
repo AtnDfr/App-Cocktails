@@ -187,3 +187,4 @@ Tableur `.xlsx` à 3 onglets, versionné dans le dépôt = **source de vérité 
 - Pour tout point non couvert : poser la question à l'utilisateur.
 - Ne jamais inventer de recette ni de dose : toute dose non reconnue est marquée « à vérifier ».
 - Mettre à jour ce fichier quand une nouvelle décision est validée.
+- **Fusion des pull requests** (autorisation de l'utilisateur, 2026-11-06) : Claude fusionne lui-même ses pull requests vers `main` une fois les tests passés, sans attendre de feu vert, puis vérifie que le site en ligne est à jour. Chaque changement passe quand même par une pull request (traçabilité, retour arrière possible).
