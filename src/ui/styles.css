@@ -59,20 +59,22 @@ button.discret:hover { background: var(--accent-doux); }
 
 .categorie h2 { border-bottom: 1px solid var(--ligne); padding-bottom: .3rem; }
 .cases { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: .4rem; }
-.cases label { display: grid; grid-template-columns: auto 1fr; column-gap: .6rem; padding: .5rem .7rem; border: 1px solid var(--ligne); border-radius: 8px; background: var(--surface); cursor: pointer; }
+.cases label { display: flex; align-items: center; gap: .6rem; padding: .55rem .7rem; border: 1px solid var(--ligne); border-radius: 8px; background: var(--surface); cursor: pointer; }
 .cases label:hover { border-color: var(--accent); }
 .cases label.coche { border-color: var(--ok); background: var(--ok-doux); }
-.cases input { grid-row: span 2; margin-top: .3rem; accent-color: var(--ok); }
-.cases .meta { font-size: .8rem; color: var(--doux); }
+.cases input { margin: 0; accent-color: var(--ok); }
 
 .liste summary { cursor: pointer; list-style: revert; }
 .liste summary h2 { display: inline; }
-.cartes { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: .6rem; }
-.carte { display: flex; flex-direction: column; height: 100%; padding: .7rem .9rem; border: 1px solid var(--ligne); border-radius: 10px; background: var(--surface); color: var(--texte); text-decoration: none; }
-.carte:hover { border-color: var(--accent); }
-.carte .titre { font-family: Georgia, serif; font-size: 1.1rem; }
-.carte .meta { font-size: .8rem; color: var(--doux); }
-.carte .manque { margin-top: .3rem; font-size: .85rem; color: var(--alerte); }
+.cartes { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: .8rem; }
+.carte { display: flex; flex-direction: column; gap: .15rem; height: 100%; padding: 1rem 1.1rem; border: 1px solid var(--ligne); border-radius: 12px; background: var(--surface); color: var(--texte); text-decoration: none; transition: border-color .15s, box-shadow .15s; }
+.carte:hover { border-color: var(--accent); box-shadow: 0 2px 10px rgb(0 0 0 / .06); }
+.carte .titre { font-family: Georgia, serif; font-size: 1.2rem; line-height: 1.25; }
+.carte .meta { font-size: .82rem; color: var(--doux); }
+.carte .manque { margin-top: auto; padding-top: .7rem; display: flex; flex-direction: column; gap: .35rem; }
+.manque-titre { font-size: .75rem; text-transform: uppercase; letter-spacing: .04em; color: var(--alerte); }
+.puces { display: flex; flex-wrap: wrap; gap: .3rem; }
+.puce { padding: .15rem .55rem; border-radius: 999px; font-size: .82rem; background: var(--alerte-doux); color: var(--alerte); }
 
 .fiche { max-width: 760px; }
 .statut { padding: .3rem .8rem; border-radius: 999px; margin: 0; }
@@ -101,4 +103,5 @@ table { border-collapse: collapse; width: 100%; }
 .ideal .nombre { font-variant-numeric: tabular-nums; font-weight: 600; }
 .ideal tr.possede { background: var(--ok-doux); }
 
-.pied { max-width: 1100px; margin: 0 auto; padding: 0 1rem 2rem; font-size: .8rem; color: var(--doux); }
+.pied { max-width: 1100px; margin: 0 auto; padding: 0 1rem 2rem; font-size: .85rem; }
+.pied:empty { display: none; }

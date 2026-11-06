@@ -16,18 +16,16 @@ export function MonBar() {
   const { donnees, idx, bar, basculer, vider } = useBar();
   const [recherche, setRecherche] = useState("");
 
-  // Pour chaque groupe : les marques / variantes rencontrées dans les recettes, et le nombre de cocktails qui l'utilisent.
-  const infos = useMemo(() => {
-    const exemples = new Map<string, string[]>();
-    for (const i of donnees.ingredients) if (i.id !== i.groupe) exemples.set(i.groupe, [...(exemples.get(i.groupe) ?? []), i.nom.replace(/\s*\(.*\)$/, "")]);
-    const usages = new Map<string, number>();
-    for (const ids of idx.requis.values()) for (const g of ids) usages.set(g, (usages.get(g) ?? 0) + 1);
-    return { exemples, usages };
-  }, [donnees, idx]);
+  // Marques / variantes rencontrées dans les recettes, pour que la recherche « Cointreau » trouve « Triple sec ».
+  const marques = useMemo(() => {
+    const m = new Map<string, string>();
+    for (const i of donnees.ingredients) if (i.id !== i.groupe) m.set(i.groupe, `${m.get(i.groupe) ?? ""} ${i.nom}`);
+    return m;
+  }, [donnees]);
 
   const faisables = classer(idx, donnees.cocktails, bar).faisables.length;
   const q = normaliser(recherche);
-  const groupes = donnees.groupes.filter((g) => !g.basique && (!q || normaliser(g.nom + " " + (infos.exemples.get(g.id) ?? []).join(" ")).includes(q)));
+  const groupes = donnees.groupes.filter((g) => !g.basique && (!q || normaliser(g.nom + " " + (marques.get(g.id) ?? "")).includes(q)));
   const basiques = donnees.groupes.filter((g) => g.basique).map((g) => g.nom.toLowerCase());
 
   return (
@@ -55,19 +53,14 @@ export function MonBar() {
           <div key={cat} className="categorie">
             <h2>{TITRES[cat]} <span className="compte">{coches}/{liste.length}</span></h2>
             <ul className="cases">
-              {liste.map((g) => {
-                const ex = infos.exemples.get(g.id);
-                const n = infos.usages.get(g.id) ?? 0;
-                return (
-                  <li key={g.id}>
-                    <label className={bar.has(g.id) ? "coche" : ""}>
-                      <input type="checkbox" checked={bar.has(g.id)} onChange={() => basculer(g.id)} />
-                      <span className="nom">{g.nom}</span>
-                      <span className="meta">{n} cocktail{n > 1 ? "s" : ""}{ex ? ` · ex. ${ex.slice(0, 3).join(", ")}` : ""}</span>
-                    </label>
-                  </li>
-                );
-              })}
+              {liste.map((g) => (
+                <li key={g.id}>
+                  <label className={bar.has(g.id) ? "coche" : ""}>
+                    <input type="checkbox" checked={bar.has(g.id)} onChange={() => basculer(g.id)} />
+                    <span className="nom">{g.nom}</span>
+                  </label>
+                </li>
+              ))}
             </ul>
           </div>
         );

@@ -52,8 +52,12 @@ export function Cocktails() {
               <a className="carte" href={lien.cocktail(c.id)}>
                 <span className="titre">{c.nom}</span>
                 <span className="meta">{[c.technique, c.verre].filter(Boolean).join(" · ")}</span>
-                {m.length > 0 && m.length <= 3 && <span className="manque">Manque : {m.map(nomGroupe).join(", ")}</span>}
-                {m.length > 3 && <span className="manque">Manque {m.length} ingrédients</span>}
+                {m.length > 0 && (
+                  <span className="manque">
+                    <span className="manque-titre">Il manque</span>
+                    <span className="puces">{m.map((g) => <span key={g} className="puce">{nomGroupe(g)}</span>)}</span>
+                  </span>
+                )}
               </a>
             </li>
           );
