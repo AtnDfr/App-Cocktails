@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import type { Cocktail, Donnees } from "../data/types.ts";
-import { alcoolsDeBase, barIdeal, classer, gainSiAjoute, indexer, manquants, plusUtilises, quoiAcheter } from "./bar.ts";
+import { alcoolsDeBase, barIdeal, classer, duos, gainSiAjoute, indexer, manquants, plusUtilises, quoiAcheter } from "./bar.ts";
 import vraiesDonnees from "../data/donnees.json";
 
 const ligne = (ingredient: string, optionnel = false) => ({ ingredient, ml: 30, texte: null, optionnel });
@@ -119,6 +119,28 @@ describe("gainSiAjoute", () => {
     expect(gainSiAjoute(idx, d.cocktails, new Set(["gin", "vermouth_rouge", "whiskey_americain"]), "campari")).toBe(2);
     expect(gainSiAjoute(idx, d.cocktails, new Set(["gin"]), "campari")).toBe(0);
     expect(gainSiAjoute(idx, d.cocktails, new Set(["campari"]), "campari")).toBe(0);
+  });
+});
+
+describe("duos", () => {
+  it("propose les paires qui débloquent ensemble des cocktails", () => {
+    // Avec seulement du gin : le Negroni demande Campari + vermouth rouge.
+    const r = duos(idx, d.cocktails, new Set(["gin"]));
+    expect(r[0].groupes).toEqual(["campari", "vermouth_rouge"]);
+    expect(ids(r[0].ensemble)).toEqual(["negroni"]);
+  });
+  it("ne compte que les cocktails qui demandent les deux", () => {
+    // Bar : whiskey. Vermouth seul suffit au Manhattan : il n'est pas dans le duo ; le Boulevardier, si.
+    const duo = duos(idx, d.cocktails, new Set(["whiskey_americain"]), 50).find((x) => x.groupes.join() === "campari,vermouth_rouge")!;
+    expect(ids(duo.ensemble)).toEqual(["boulevardier"]);
+  });
+  it("limite le nombre d'apparitions d'un même ingrédient", () => {
+    const r = duos(idx, d.cocktails, new Set(), 50, 1);
+    const tous = r.flatMap((x) => x.groupes);
+    expect(new Set(tous).size).toBe(tous.length);
+  });
+  it("aucun duo quand plus rien ne manque de deux ingrédients", () => {
+    expect(duos(idx, d.cocktails, new Set(["gin", "vermouth_rouge", "whiskey_americain", "triple_sec", "tonic"]))).toEqual([]);
   });
 });
 

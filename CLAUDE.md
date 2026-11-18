@@ -170,6 +170,7 @@ Tableur `.xlsx` à 3 onglets, versionné dans le dépôt = **source de vérité 
 - Logique pure : `src/logic/bar.ts` (faisables, à 1 près, quoi acheter, bar idéal glouton, softs hors du compte N) et `src/logic/stockage.ts` (localStorage) ; tests Vitest.
 - Écrans dans `src/ui/` (Mon bar, Cocktails, Fiche, Quoi acheter, Bar idéal) ; navigation par hash (`src/ui/routes.ts`).
 - Le bar stocke des **groupes** (génériques) : on coche « Triple sec », pas « Cointreau ».
+- **« Quoi acheter » transformé** (choix délégué par l'utilisateur, 2026-11-18) : l'onglet Cocktails montre déjà les achats à 1 ingrédient près ; « Quoi acheter » garde un résumé « Un seul achat » (6 meilleurs + softs à part) et ajoute **« Les bons duos »** : paires d'achats qui, ensemble, débloquent des cocktails qu'aucun des deux ne permet seul (`duos` dans `src/logic/bar.ts`).
 - Livraison :
   - en ligne sur GitHub Pages, https://atndfr.github.io/App-Cocktails/, publié par `.github/workflows/pages.yml` à chaque push sur `main` ;
   - fichier unique hors ligne : `livrable/bar-a-cocktails.html` (`npm run build:fichier`), aussi téléchargeable sur le site (lien en pied de page, reconstruit à chaque publication).

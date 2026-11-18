@@ -132,3 +132,38 @@ export function gainSiAjoute(idx: Index, cocktails: Cocktail[], bar: Bar, groupe
   if (bar.has(groupe)) return 0;
   return cocktails.filter((c) => { const m = manquants(idx, c, bar); return m.length === 1 && m[0] === groupe; }).length;
 }
+
+export type Duo = { groupes: [string, string]; ensemble: Cocktail[] };
+
+/**
+ * « Les bons duos » : paires d'achats qui, ensemble, débloquent des cocktails qu'aucun des deux
+ * ne débloque seul (cocktails à exactement ces deux ingrédients près). Classé par nombre de ces
+ * cocktails ; un même groupe apparaît au plus `maxParGroupe` fois, pour varier les propositions.
+ */
+export function duos(idx: Index, cocktails: Cocktail[], bar: Bar, n = 10, maxParGroupe = 2): Duo[] {
+  const parPaire = new Map<string, Duo>();
+  for (const c of cocktails) {
+    const m = manquants(idx, c, bar);
+    if (m.length !== 2) continue;
+    const [a, b] = [...m].sort();
+    const k = `${a}|${b}`;
+    if (!parPaire.has(k)) parPaire.set(k, { groupes: [a, b], ensemble: [] });
+    parPaire.get(k)!.ensemble.push(c);
+  }
+  // À égalité, les duos dont les ingrédients servent dans le plus de recettes d'abord (plus utiles ensuite).
+  const usage = new Map<string, number>();
+  for (const gs of idx.requis.values()) for (const g of gs) usage.set(g, (usage.get(g) ?? 0) + 1);
+  const poids = (d: Duo) => d.groupes.reduce((t, g) => t + (usage.get(g) ?? 0), 0);
+  const tries = [...parPaire.values()].sort(
+    (x, y) => y.ensemble.length - x.ensemble.length || poids(y) - poids(x) || x.groupes.join().localeCompare(y.groupes.join()),
+  );
+  const vus = new Map<string, number>();
+  const res: Duo[] = [];
+  for (const d of tries) {
+    if (res.length >= n) break;
+    if (d.groupes.some((g) => (vus.get(g) ?? 0) >= maxParGroupe)) continue;
+    for (const g of d.groupes) vus.set(g, (vus.get(g) ?? 0) + 1);
+    res.push(d);
+  }
+  return res;
+}
