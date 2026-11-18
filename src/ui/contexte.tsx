@@ -18,12 +18,16 @@ type Contexte = {
   ajouter: (groupes: string[]) => void;
   remplacer: (groupes: Iterable<string>) => void;
   vider: () => void;
+  /** Nombre de personnes choisi sur la fiche, conservé pendant la visite. */
+  personnes: number;
+  setPersonnes: (n: number) => void;
 };
 
 const Ctx = createContext<Contexte | null>(null);
 
 export function FournisseurBar({ children }: { children: ReactNode }) {
   const idx = useMemo(() => indexer(donnees), []);
+  const [personnes, setPersonnes] = useState(1);
   const [bar, setBar] = useState<ReadonlySet<string>>(() => lireBar(new Set(idx.groupes.keys())));
   useEffect(() => ecrireBar(bar), [bar]);
 
@@ -41,8 +45,10 @@ export function FournisseurBar({ children }: { children: ReactNode }) {
       ajouter: (gs) => setBar((b) => new Set([...b, ...gs])),
       remplacer: (gs) => setBar(new Set(gs)),
       vider: () => setBar(new Set()),
+      personnes,
+      setPersonnes,
     };
-  }, [bar, idx]);
+  }, [bar, idx, personnes]);
 
   return <Ctx.Provider value={valeur}>{children}</Ctx.Provider>;
 }

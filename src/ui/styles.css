@@ -196,3 +196,15 @@ button.rond { width: 2.4rem; height: 2.4rem; padding: 0; border-radius: 50%; fon
 .duo-noms { display: inline-flex; flex-wrap: wrap; align-items: center; gap: .4rem; font-size: 1.1rem; }
 .duo-noms .plus { color: var(--accent); font-weight: 600; }
 .duo-tete .bascule { margin-left: auto; }
+
+/* Portions et « Surprends-moi » */
+.fiche-nav { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; }
+.fiche-nav .retour { margin-bottom: 0; }
+.bloc-tete { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5rem 1rem; margin-bottom: .8rem; }
+.bloc-tete h2 { margin: 0; }
+.portions { display: inline-flex; border: 1px solid var(--ligne); border-radius: 999px; overflow: hidden; }
+.portions button { padding: .3rem .7rem; border-radius: 0; background: transparent; color: var(--texte); font-size: .85rem; }
+.portions button + button { border-left: 1px solid var(--ligne); }
+.portions button.actif { background: var(--accent); color: var(--surface); }
+.note-portions { margin: 0 0 .6rem; font-size: .85rem; color: var(--doux); }
+button.surprise { font-size: 1rem; padding: .55rem 1.1rem; border-radius: 999px; }
