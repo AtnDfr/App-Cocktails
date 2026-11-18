@@ -76,21 +76,46 @@ button.discret:hover { background: var(--accent-doux); }
 .puces { display: flex; flex-wrap: wrap; gap: .3rem; }
 .puce { padding: .15rem .55rem; border-radius: 999px; font-size: .82rem; background: var(--alerte-doux); color: var(--alerte); }
 
-.fiche { max-width: 760px; }
-.statut { padding: .3rem .8rem; border-radius: 999px; margin: 0; }
-.statut.ok { background: var(--ok-doux); color: var(--ok); }
-.statut.manque { background: var(--alerte-doux); color: var(--alerte); }
-.infos { display: grid; grid-template-columns: max-content 1fr; gap: .2rem 1rem; color: var(--doux); }
-.infos dd { margin: 0; color: var(--texte); }
-table { border-collapse: collapse; width: 100%; }
-.ingredients td { padding: .5rem .4rem; border-bottom: 1px solid var(--ligne); vertical-align: top; }
-.ingredients .dose { width: 9rem; font-variant-numeric: tabular-nums; font-weight: 600; }
-.ingredients .action { text-align: right; white-space: nowrap; }
-.ingredients tr.absent td:not(.action) { color: var(--alerte); }
-.ingredients tr.absent { background: var(--alerte-doux); }
 .etiquette { margin-left: .5rem; padding: .05rem .45rem; border-radius: 999px; font-size: .75rem; background: var(--accent-doux); color: var(--accent); }
 .etiquette.discrete { background: transparent; border: 1px solid var(--ligne); color: var(--doux); }
-.etapes li { margin-bottom: .4rem; }
+
+/* Fiche cocktail */
+.fiche { max-width: 1000px; }
+.retour { display: inline-block; margin-bottom: 1rem; text-decoration: none; }
+.retour:hover { text-decoration: underline; }
+.fiche-entete h1 { font-size: 2.6rem; line-height: 1.1; }
+.pastilles { display: flex; flex-wrap: wrap; gap: .4rem; list-style: none; margin: .8rem 0 0; padding: 0; }
+.pastilles li { padding: .25rem .75rem; border-radius: 999px; background: var(--surface); border: 1px solid var(--ligne); font-size: .9rem; }
+.pastilles li:first-letter { text-transform: uppercase; }
+.pastilles li.discrete { color: var(--doux); }
+.bandeau { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5rem 1rem; margin: 1.4rem 0; padding: .9rem 1.1rem; border-radius: 12px; }
+.bandeau.ok { background: var(--ok-doux); color: var(--ok); }
+.bandeau.manque { background: var(--alerte-doux); color: var(--alerte); }
+.bandeau button.discret { background: var(--surface); }
+.fiche-corps { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1.2rem; align-items: start; }
+@media (max-width: 760px) { .fiche-corps { grid-template-columns: 1fr; } .ligne { grid-template-columns: 4.2rem 1fr auto; gap: .6rem; } .bloc { padding: 1rem; } .fiche-entete h1 { font-size: 2.2rem; } }
+.bloc { padding: 1.2rem 1.4rem; border: 1px solid var(--ligne); border-radius: 14px; background: var(--surface); }
+.bloc h2 { margin-top: 0; }
+.lignes { list-style: none; margin: 0; padding: 0; }
+.ligne { display: grid; grid-template-columns: 5.5rem 1fr auto; align-items: center; gap: .8rem; padding: .65rem 0; border-top: 1px solid var(--ligne); }
+.ligne:first-child { border-top: none; }
+.ligne .dose { font-family: Georgia, serif; font-size: 1.2rem; font-variant-numeric: tabular-nums; line-height: 1.2; }
+.ligne .dose small { font-family: system-ui, sans-serif; font-size: .75rem; color: var(--doux); }
+.ligne .ingredient { display: flex; flex-direction: column; }
+.ligne .principal { font-weight: 600; }
+.ligne .precision { font-size: .85rem; color: var(--doux); }
+.ligne .etiquette { margin: .2rem 0 0; align-self: flex-start; }
+.ligne.absent { margin: 0 -.6rem; padding-left: .6rem; padding-right: .6rem; border-radius: 8px; background: var(--alerte-doux); }
+.ligne.absent .principal { color: var(--alerte); }
+.ligne .note { font-size: .78rem; color: var(--doux); }
+.bascule { padding: .25rem .7rem; font-size: .82rem; border-radius: 999px; background: var(--surface); color: var(--accent); border: 1px solid var(--accent); white-space: nowrap; }
+.bascule.oui { color: var(--ok); border-color: transparent; background: var(--ok-doux); }
+.etapes { list-style: none; counter-reset: etape; margin: 0; padding: 0; }
+.etapes li { counter-increment: etape; position: relative; padding: 0 0 .9rem 2.6rem; }
+.etapes li::before { content: counter(etape); position: absolute; left: 0; top: -.1rem; width: 1.8rem; height: 1.8rem; border-radius: 50%; display: grid; place-items: center; background: var(--accent); color: var(--surface); font-size: .85rem; font-weight: 600; }
+.garniture { margin-top: .6rem; padding: .8rem 1rem; border-radius: 10px; background: var(--fond); }
+.garniture h3 { margin: 0 0 .2rem; font-family: Georgia, serif; font-weight: normal; font-size: 1rem; color: var(--doux); }
+.garniture p { margin: 0; }
 
 .achats { padding-left: 1.4rem; }
 .achats > li { margin-bottom: 1rem; }
@@ -98,6 +123,7 @@ table { border-collapse: collapse; width: 100%; }
 .gain { color: var(--ok); font-weight: 600; }
 .detail { margin: .2rem 0 0; color: var(--doux); font-size: .92rem; }
 
+table { border-collapse: collapse; width: 100%; }
 .ideal th, .ideal td { text-align: left; padding: .5rem .5rem; border-bottom: 1px solid var(--ligne); vertical-align: top; }
 .ideal th { color: var(--doux); font-weight: normal; }
 .ideal .nombre { font-variant-numeric: tabular-nums; font-weight: 600; }
