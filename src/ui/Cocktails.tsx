@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import type { Cocktail } from "../data/types.ts";
 import { alcoolsDeBase, classer, manquants, quoiAcheter } from "../logic/bar.ts";
+import { auHasard } from "../logic/portions.ts";
 import { useBar } from "./contexte.tsx";
 import { lien } from "./routes.ts";
 import { normaliser, pluriel } from "./texte.ts";
@@ -28,7 +29,14 @@ export function Cocktails() {
     <section>
       <header className="entete">
         <h1>Cocktails</h1>
-        <p className="resume">{pluriel(donnees.cocktails.length, "recette")}</p>
+        <button
+          className="surprise"
+          disabled={!faisables.length}
+          title={faisables.length ? "Un cocktail au hasard parmi ceux que tu peux faire" : "Aucun cocktail faisable avec ton bar (et ces filtres)"}
+          onClick={() => { const c = auHasard(faisables); if (c) location.hash = lien.surprise(c.id); }}
+        >
+          🎲 Surprends-moi
+        </button>
       </header>
       <div className="barre-outils">
         <input type="search" placeholder="Rechercher un cocktail…" value={recherche} onChange={(e) => setRecherche(e.target.value)} />

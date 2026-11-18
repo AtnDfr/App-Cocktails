@@ -26,7 +26,7 @@ export function App() {
       <main>
         {route.ecran === "bar" && <MonBar />}
         {route.ecran === "cocktails" && <Cocktails />}
-        {route.ecran === "cocktail" && <FicheCocktail id={route.id} />}
+        {route.ecran === "cocktail" && <FicheCocktail id={route.id} surprise={route.surprise} />}
         {route.ecran === "acheter" && <QuoiAcheter />}
         {route.ecran === "ideal" && <BarIdeal />}
       </main>
